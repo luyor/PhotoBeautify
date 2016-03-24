@@ -16,44 +16,44 @@ define(
 			loc( buttonTextEl, 'textContent', 'nav.menu' );
 			loc( buttonTextEl, 'title', 'nav.menutitle' );
 
-			var buttonSVGWrapperEl = document.createElement( 'div' );
-			buttonSVGWrapperEl.classList.add( 'svg-wrapper' );
+			// var buttonSVGWrapperEl = document.createElement( 'div' );
+			// buttonSVGWrapperEl.classList.add( 'svg-wrapper' );
 
-			var svgEl = document.getElementById( 'svg' );
-			svgEl.setAttribute( 'viewBox', '0 0 24 24' );
+			// var svgEl = document.getElementById( 'svg' );
+			// svgEl.setAttribute( 'viewBox', '0 0 24 24' );
 
-			buttonSVGWrapperEl.appendChild( svgEl );
+			// buttonSVGWrapperEl.appendChild( svgEl );
 
-			var svgGroupEl = document.createElementNS( 'http://www.w3.org/2000/svg', 'g' );
-			svgGroupEl.setAttribute( 'id', 'menu' );
-			svgGroupEl.setAttributeNS( null, 'fill', '#000' );
-			svgEl.appendChild( svgGroupEl );
+			// var svgGroupEl = document.createElementNS( 'http://www.w3.org/2000/svg', 'g' );
+			// svgGroupEl.setAttribute( 'id', 'menu' );
+			// svgGroupEl.setAttributeNS( null, 'fill', '#000' );
+			// svgEl.appendChild( svgGroupEl );
 
-			var svgRect1El = elHelper.createEl( 'rect', null, svgGroupEl );
-			svgRect1El.setAttribute( 'id', 'rect-1' );
-			svgRect1El.setAttributeNS( null, 'x', '3' );
-			svgRect1El.setAttributeNS( null, 'y', '6' );
-			svgRect1El.setAttributeNS( null, 'width', '18' );
-			svgRect1El.setAttributeNS( null, 'height', '2' );
+			// var svgRect1El = elHelper.createEl( 'rect', null, svgGroupEl );
+			// svgRect1El.setAttribute( 'id', 'rect-1' );
+			// svgRect1El.setAttributeNS( null, 'x', '3' );
+			// svgRect1El.setAttributeNS( null, 'y', '6' );
+			// svgRect1El.setAttributeNS( null, 'width', '18' );
+			// svgRect1El.setAttributeNS( null, 'height', '2' );
 
-			var svgRect2El = elHelper.createEl( 'rect', null, svgGroupEl );
-			svgRect2El.setAttributeNS( null, 'id', 'rect-2' );
-			svgRect2El.setAttributeNS( null, 'x', '3' );
-			svgRect2El.setAttributeNS( null, 'y', '11' );
-			svgRect2El.setAttributeNS( null, 'width', '18' );
-			svgRect2El.setAttributeNS( null, 'height', '2' );
+			// var svgRect2El = elHelper.createEl( 'rect', null, svgGroupEl );
+			// svgRect2El.setAttributeNS( null, 'id', 'rect-2' );
+			// svgRect2El.setAttributeNS( null, 'x', '3' );
+			// svgRect2El.setAttributeNS( null, 'y', '11' );
+			// svgRect2El.setAttributeNS( null, 'width', '18' );
+			// svgRect2El.setAttributeNS( null, 'height', '2' );
 
-			var svgRect3El = elHelper.createEl( 'rect', null, svgGroupEl );
-			svgRect3El.setAttributeNS( null, 'id', 'rect-3' );
-			svgRect3El.setAttributeNS( null, 'x', '3' );
-			svgRect3El.setAttributeNS( null, 'y', '16' );
-			svgRect3El.setAttributeNS( null, 'width', '18' );
-			svgRect3El.setAttributeNS( null, 'height', '2' );
+			// var svgRect3El = elHelper.createEl( 'rect', null, svgGroupEl );
+			// svgRect3El.setAttributeNS( null, 'id', 'rect-3' );
+			// svgRect3El.setAttributeNS( null, 'x', '3' );
+			// svgRect3El.setAttributeNS( null, 'y', '16' );
+			// svgRect3El.setAttributeNS( null, 'width', '18' );
+			// svgRect3El.setAttributeNS( null, 'height', '2' );
 			
-			buttonSVGWrapperEl.appendChild( svgEl );
+			// buttonSVGWrapperEl.appendChild( svgEl );
 
 			var buttonEl = elHelper.createButton( buttonTextEl, 'nav.menutitle', 'nav-toggle-button', parentEl );
-			buttonEl.appendChild( buttonSVGWrapperEl );
+			// buttonEl.appendChild( buttonSVGWrapperEl );
 			buttonEl.addEventListener( 'click', toggle, false );
 
 			var headlineEl = elHelper.createEl( 'h1', 'nav-headline', el );
