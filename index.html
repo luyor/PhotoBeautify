@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: -apple-system, Roboto, 'Lucida Grande', sans-serif;
+    }
+    </style>
+    
+    <title>Photo Beautify</title>
+</head>
+
+<body>
+    <svg id="svg" xmlns="http://www.w3.org/2000/svg"></svg>
+    <script type="text/javascript">
+    var scriptEl = document.createElement('script');
+    scriptEl.setAttribute('data-main', 'scripts/beautify.js');
+    scriptEl.async = true;
+    scriptEl.src = 'scripts/lib/require.js';
+    document.body.appendChild(scriptEl);
+
+    var linkEl = document.createElement('link');
+    linkEl.href = 'styles/beautify.css';
+    linkEl.rel = 'stylesheet';
+    document.head.appendChild(linkEl);
+    </script>
+</body>
+
+</html>
