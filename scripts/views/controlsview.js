@@ -30,7 +30,7 @@ define(
 
 			show();
 			
-			elHelper.createButton( 'controls.randomize', 'controls.randomizetitle', 'random-button button', controlsWrapperEl, randomButtonClicked );
+			//elHelper.createButton( 'controls.randomize', 'controls.randomizetitle', 'random-button button', controlsWrapperEl, randomButtonClicked );
 
 			function loadInitialValues () {
 				// dispatch initial values when model is listening

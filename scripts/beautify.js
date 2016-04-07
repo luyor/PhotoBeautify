@@ -22,8 +22,8 @@ require([
     'views/draganddropview',
     'views/workspaceview',
     'views/welcomeview',
-    'views/settingsview'
-    // 'models/controlsmodel',
+    'views/settingsview',
+    'models/controlsmodel'
     // 'models/imagemodel',
     // 'models/glitchmodel',
     // 'models/storagemodel',
@@ -51,8 +51,8 @@ require([
     DragAndDropView,
     WorkspaceView,
     WelcomeView,
-    SettingsView
-    // ControlsModel,
+    SettingsView,
+    ControlsModel
     // ImageModel,
     // GlitchModel,
     // StorageModel,
@@ -63,13 +63,13 @@ require([
     // localforage
 ) {
     // var imageModel = ImageModel();
-    // // var glitchModel = GlitchModel();
-    // // var shareModel = ShareModel();
-    // // var storageModel = StorageModel();
-    // var controlsModel = ControlsModel( config.defaultControlParams );
-    // // var networkModel = NetworkModel();
+    // var glitchModel = GlitchModel();
+    // var shareModel = ShareModel();
+    // var storageModel = StorageModel();
+    var controlsModel = ControlsModel( config.defaultControlParams );
+    // var networkModel = NetworkModel();
     // var localisationModel = LocalisationModel.sharedInstance;
-    // // var settingsModel = SettingsModel();
+    // var settingsModel = SettingsModel();
 
     var appView = AppView(document.body);
     var navView = NavView(appView.el);
@@ -94,11 +94,20 @@ require([
         addSubscribers();
     }
 
-    function addSubscribers() {}
+    function addSubscribers() {
+        controlsView
+            .on('update', controlsModel.setValue)
+            .on('random', controlsModel.randomizeValues);
+
+        controlsModel
+            .on('update', controlsView.setValue)
+
+    }
 
     function addCSSClasses() {
         if (browser.test('touch')) {
             document.documentElement.classList.add('has-touch');
         }
     }
+    init();
 });
