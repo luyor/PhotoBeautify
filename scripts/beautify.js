@@ -114,6 +114,12 @@ require([
         openFileView
             .on( 'openfile', imageModel.loadFromFile )
 
+        imageModel
+            .on( 'load', canvasView.putImageData )
+            .on( 'load', openFileView.dialog.hide )
+            .on( 'load', canvasView.animateToCenter )
+            .on( 'load', canvasView.show )
+            .on( 'update', canvasView.hide )
     }
 
     function addCSSClasses() {

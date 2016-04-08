@@ -14,7 +14,7 @@ define(
 			var navButtonEl;
 			var dialog;
 
-			var publishers = addPublishers( self, 'openfile', 'deletefromlocalstorage', 'openfromlocalstorage', 'deletefromimgur' );
+			var publishers = addPublishers( self, 'openfile' );
 
 			// check if the browser supports the filereader API
 			// before displaying upload button
