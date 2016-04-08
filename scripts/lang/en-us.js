@@ -58,6 +58,7 @@ var text = {
         "menutitle": "Toggle the main menu"
     },
     "file": {
+        "filter":"Filter",
         "open": "Open",
         "opentitle": "Open an image from your device",
         "import": "Import File",
@@ -79,6 +80,7 @@ var text = {
         "downloadtitle": "Download the glitched image to your device",
         "saveinbrowser": "Save in Browser",
         "saveinbrowsertitle": "Save image in your browser’s storage",
+        "filterlabeltitle":"Choose your filter",
         "error": {
             "load": "Could not get previous session data from your browser.",
             "save": "Could not save data to your browser.",

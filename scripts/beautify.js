@@ -10,6 +10,7 @@ require([
     'views/navview',
     'views/controlsview',
     'views/openfileview',
+    'views/filterview',
     'views/fullscreenview',
     'views/webcamview',
     'views/canvasview',
@@ -39,6 +40,7 @@ require([
     NavView,
     ControlsView,
     OpenFileView,
+    FilterView,
     FullscreenView,
     WebCamView,
     CanvasView,
@@ -80,6 +82,7 @@ require([
     var indicatorView = IndicatorView(workspaceView.el);
     var canvasView = CanvasView(workspaceView.el, navView.el);
     var openFileView = OpenFileView(navView.el);
+    var filterView = FilterView(navView.el);
     var saveView = SaveView(navView.el);
     var webcamView = WebCamView(navView.el);
     // var shareView = ShareView(navView.el);

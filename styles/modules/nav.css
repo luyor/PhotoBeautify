@@ -80,6 +80,11 @@
 	background-image: url(../../images/icon/open-in-app.svg);
 }
 
+.filter-button::before {
+	background-image: url(../../images/icon/filter.svg);
+}
+
+
 .save-view-button::before {
 	background-image: url(../../images/icon/content-save.svg);
 }
