@@ -59,6 +59,8 @@ var text = {
     },
     "file": {
         "filter":"Filter",
+        "frame":"Frame",
+        "adjust":"Adjust",
         "open": "Open",
         "opentitle": "Open an image from your device",
         "import": "Import File",
@@ -81,6 +83,8 @@ var text = {
         "saveinbrowser": "Save in Browser",
         "saveinbrowsertitle": "Save image in your browser’s storage",
         "filterlabeltitle":"Choose your filter",
+        "adjustlabeltitle":"Adjust the parameters of the photo",
+        "framelabeltitle":"Choose your favorite frame",
         "error": {
             "load": "Could not get previous session data from your browser.",
             "save": "Could not save data to your browser.",
