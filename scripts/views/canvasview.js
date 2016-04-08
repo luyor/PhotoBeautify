@@ -14,7 +14,7 @@ define(
 			
 			var workspaceEl = elHelper.createEl( 'div', 'panzoom', parentEl );
 			var canvasWrapperEl = elHelper.createEl( 'div', 'canvas-wrapper', workspaceEl );
-			var canvasEl = elHelper.createEl( 'canvas', 'glitch-canvas', canvasWrapperEl );
+			var canvasEl = elHelper.createEl( 'canvas', 'beautify-canvas', canvasWrapperEl );
 
 			var ctx = canvasEl.getContext( '2d' );
 

@@ -26,8 +26,8 @@ require([
     'views/workspaceview',
     'views/welcomeview',
     'views/settingsview',
-    'models/controlsmodel'
-    // 'models/imagemodel',
+    'models/controlsmodel',
+    'models/imagemodel'
     // 'models/glitchmodel',
     // 'models/storagemodel',
     // 'models/sharemodel',
@@ -58,8 +58,8 @@ require([
     WorkspaceView,
     WelcomeView,
     SettingsView,
-    ControlsModel
-    // ImageModel,
+    ControlsModel,
+    ImageModel
     // GlitchModel,
     // StorageModel,
     // ShareModel,
@@ -68,7 +68,7 @@ require([
     // LocalisationModel,
     // localforage
 ) {
-    // var imageModel = ImageModel();
+    var imageModel = ImageModel();
     // var glitchModel = GlitchModel();
     // var shareModel = ShareModel();
     // var storageModel = StorageModel();
@@ -111,12 +111,24 @@ require([
         controlsModel
             .on('update', controlsView.setValue);
 
+
         adjustview
             .on('updateControlView', controlsView.updateControlButton);
         filterView
             .on('updateControlView', controlsView.updateControlButton);
         frameView
             .on('updateControlView', controlsView.updateControlButton);
+
+        openFileView
+            .on( 'openfile', imageModel.loadFromFile )
+
+        imageModel
+            .on( 'load', canvasView.putImageData )
+            .on( 'load', openFileView.dialog.hide )
+            .on( 'load', canvasView.animateToCenter )
+            .on( 'load', canvasView.show )
+            .on( 'update', canvasView.hide )
+
     }
 
     function addCSSClasses() {
