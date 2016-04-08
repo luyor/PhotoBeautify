@@ -24,8 +24,8 @@ require([
     'views/workspaceview',
     'views/welcomeview',
     'views/settingsview',
-    'models/controlsmodel'
-    // 'models/imagemodel',
+    'models/controlsmodel',
+    'models/imagemodel'
     // 'models/glitchmodel',
     // 'models/storagemodel',
     // 'models/sharemodel',
@@ -54,8 +54,8 @@ require([
     WorkspaceView,
     WelcomeView,
     SettingsView,
-    ControlsModel
-    // ImageModel,
+    ControlsModel,
+    ImageModel
     // GlitchModel,
     // StorageModel,
     // ShareModel,
@@ -64,7 +64,7 @@ require([
     // LocalisationModel,
     // localforage
 ) {
-    // var imageModel = ImageModel();
+    var imageModel = ImageModel();
     // var glitchModel = GlitchModel();
     // var shareModel = ShareModel();
     // var storageModel = StorageModel();
@@ -103,7 +103,10 @@ require([
             .on('random', controlsModel.randomizeValues);
 
         controlsModel
-            .on('update', controlsView.setValue)
+            .on('update', controlsView.setValue);
+
+        openFileView
+            .on( 'openfile', imageModel.loadFromFile )
 
     }
 
