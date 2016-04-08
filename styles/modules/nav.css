@@ -84,6 +84,13 @@
 	background-image: url(../../images/icon/filter.svg);
 }
 
+.adjust-button::before {
+	background-image: url(../../images/icon/adjust.svg);
+}
+
+.frame-button::before {
+	background-image: url(../../images/icon/frame.svg);
+}
 
 .save-view-button::before {
 	background-image: url(../../images/icon/content-save.svg);
