@@ -12,7 +12,7 @@ define(
 			var navButtonEl;
 			var dialog;
 
-			var publishers = addPublishers( self, 'openAdjustMenu' );
+			var publishers = addPublishers( self, 'updateControlView' );
 
 			navButtonEl = elHelper.createButton( 'file.adjust', 'file.adjusttitle', 'adjust-button nav-button', parentEl );
 
@@ -23,6 +23,12 @@ define(
 
 			self.dialog = dialog;
 
+            navButtonEl.addEventListener( 'click', click );
+
+            function click() {
+                publishers.updateControlView.dispatch( ["a", "b"] );
+                console.log("test")
+            }
 			//dialog = Dialog( 'open-file-dialog', parentEl, navButtonEl );
 
 			// var fileLabelEl = elHelper.createLabel( 'file.importtitle', 'input-file', 'file-label label' );

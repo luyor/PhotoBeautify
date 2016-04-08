@@ -109,8 +109,14 @@ require([
             .on('random', controlsModel.randomizeValues);
 
         controlsModel
-            .on('update', controlsView.setValue)
+            .on('update', controlsView.setValue);
 
+        adjustview
+            .on('updateControlView', controlsView.updateControlButton);
+        filterView
+            .on('updateControlView', controlsView.updateControlButton);
+        frameView
+            .on('updateControlView', controlsView.updateControlButton);
     }
 
     function addCSSClasses() {

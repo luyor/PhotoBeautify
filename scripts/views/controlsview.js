@@ -147,9 +147,19 @@ define(
 
 				isIgnoringInput = false;
 			}
+
+
+			function updateControlButton( elements ) {
+				inputEls = { };
+				valueEls = { };
+				for (element in elements) {
+					addControl(element, 0);
+				}
+			}
 			
 			self.loadInitialValues = loadInitialValues;
 			self.setValue = setValue;
+			self.updateControlButton = updateControlButton;
 		}
 
 		return ControlsView;

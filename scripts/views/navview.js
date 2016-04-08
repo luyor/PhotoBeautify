@@ -87,7 +87,7 @@ define(
 					el.classList.add( 'is-active' );
 					buttonEl.classList.add( 'is-active' );
 				} );
-
+				
 				publishers.togglestart.dispatch( true );
 				
 				setTimeout( function () {

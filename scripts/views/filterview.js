@@ -12,7 +12,7 @@ define(
 			var navButtonEl;
 			var dialog;
 
-			var publishers = addPublishers( self, 'openFilterMenu' );
+			var publishers = addPublishers( self, 'updateControlView' );
 
 			navButtonEl = elHelper.createButton( 'file.filter', 'file.filtertitle', 'filter-button nav-button', parentEl );
 
@@ -22,6 +22,13 @@ define(
 			dialog.add(fileLabelEl);
 
 			self.dialog = dialog;
+
+            navButtonEl.addEventListener( 'click', click );
+			
+            function click() {
+                publishers.updateControlView.dispatch( ["a", "b"] );
+                console.log("test")
+            }
 
 			//dialog = Dialog( 'open-file-dialog', parentEl, navButtonEl );
 
