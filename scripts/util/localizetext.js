@@ -8,11 +8,13 @@ define(
             var arr = key.split(".");
             while(arr.length && (obj = obj[arr.shift()]));
 
+            if (el==null)return obj;
             if (attribute === 'innerHTML') {
                 el.innerHTML = obj;
             } else {
                 el[attribute] = obj;
             }
+
         }
 
         return loc;
