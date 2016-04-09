@@ -16,7 +16,6 @@ define(
 
 			elHelper.createButton( 'controls.confirm', 'controls.confirm', 'comfirm-button button', el, confirmButtonClicked );			
 			elHelper.createButton( 'controls.center', 'controls.centertitle', 'center-button button', el, centerButtonClicked );
-			elHelper.createButton( 'controls.original', 'controls.originaltitle', 'scale-to-original-button button', el, scaleToOriginalButtonClicked );
 			elHelper.createLabel( 'controls.zoom', 'control.zoomtitle', 'scale-label', el );
 
 			var scaleSliderEl = elHelper.createEl( 'input', 'scale-slider', el );
@@ -42,11 +41,6 @@ define(
 					publishers.scale.dispatch( parseFloat( scaleSliderEl.value ) );
 					publishers.update.dispatch( 'scale', parseFloat( scaleSliderEl.value ) );
 				}
-			}
-
-			function scaleToOriginalButtonClicked ( event ) {
-				publishers.scale.dispatch( 1.00 );
-				publishers.update.dispatch( 'scale', 1.00 );
 			}
 
 			// when setting scale, prevent infinite

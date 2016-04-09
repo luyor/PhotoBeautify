@@ -11,7 +11,7 @@ define(
 			params = params || { };
 
 			var self = this;
-			var publishers = addPublishers( self, 'update', 'random' );
+			var publishers = addPublishers( self, 'update');
 
 			var isIgnoringInput = false;
 			var isActive = true;
@@ -40,8 +40,7 @@ define(
 			FramemenuEl.style.display = "none";
 
 			show();
-			
-			//elHelper.createButton( 'controls.randomize', 'controls.randomizetitle', 'random-button button', controlsWrapperEl, randomButtonClicked );
+		
 
 			function loadInitialValues () {
 				// dispatch initial values when model is listening
@@ -93,13 +92,8 @@ define(
 						controlValues[key] = parseInt( event.target.value, 10 );
 						
 						publishers.update.dispatch( key, controlValues[key] );
+						setValue(key, controlValues[key] );
 					}
-				}
-			}
-
-			function randomButtonClicked ( event ) {
-				if ( isActive ) {
-					publishers.random.dispatch();
 				}
 			}
 

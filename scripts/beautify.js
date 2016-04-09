@@ -26,7 +26,6 @@ require([
     'views/workspaceview',
     'views/welcomeview',
     'views/settingsview',
-    'models/controlsmodel',
     'models/imagemodel'
     // 'models/glitchmodel',
     // 'models/storagemodel',
@@ -58,7 +57,6 @@ require([
     WorkspaceView,
     WelcomeView,
     SettingsView,
-    ControlsModel,
     ImageModel
     // GlitchModel,
     // StorageModel,
@@ -72,7 +70,7 @@ require([
     // var glitchModel = GlitchModel();
     // var shareModel = ShareModel();
     // var storageModel = StorageModel();
-    var controlsModel = ControlsModel( config.defaultControlParams );
+    //var controlsModel = ControlsModel( config.defaultControlParams );
     // var networkModel = NetworkModel();
     // var localisationModel = LocalisationModel.sharedInstance;
     // var settingsModel = SettingsModel();
@@ -105,12 +103,6 @@ require([
     }
 
     function addSubscribers() {
-        controlsView
-            .on('update', controlsModel.setValue)
-            .on('random', controlsModel.randomizeValues);
-
-        controlsModel
-            .on('update', controlsView.setValue);
 
 
         adjustview
