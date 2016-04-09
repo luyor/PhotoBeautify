@@ -69,6 +69,10 @@ define(
 				}, 400 );
 			}
 
+			function getImageSRC(){
+				return canvasEl.toDataURL( 'image/png' );
+			}
+
 			self.putImageData = putImageData;
 			self.moveToCenter = panZoom.moveToCenter;
 			self.animateToCenter = panZoom.animateToCenter;
@@ -79,6 +83,7 @@ define(
 			self.resized = panZoom.resized;
 			self.el = workspaceEl;
 			self.panZoom = panZoom;
+			self.getImageSRC = getImageSRC;
 		}
 
 		return CanvasView;
