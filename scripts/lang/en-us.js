@@ -55,8 +55,8 @@ var text = {
         "saturation":"Saturation",
         "fullscreen": "Fullscreen",
         "fullscreentitle": "Toggle Fullscreen",
-        "filter1":"B&W",
-        "filter2":"222",
+        "Original":"Original",
+        "Grayscale":"Grayscale",
         "filter3":"333"
     },
     "nav": {

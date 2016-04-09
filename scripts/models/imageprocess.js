@@ -31,7 +31,9 @@ define(
 				var newdata=new_context.getImageData(0,0,canvas.width,canvas.height);
 
 				switch(name){
-					case 'filter1': 
+					case 'Original':
+						break; 
+					case 'Grayscale':
 						filtermodel.Grayscale(newdata);
 						break;
 

@@ -30,23 +30,6 @@ define(
                 
             }
 
-			//dialog = Dialog( 'open-file-dialog', parentEl, navButtonEl );
-
-			// var fileLabelEl = elHelper.createLabel( 'file.importtitle', 'input-file', 'file-label label' );
-
-			// fileInputEl = document.createElement( 'input' );
-			// fileInputEl.classList.add( 'file-input' );
-			// fileInputEl.type = 'file';
-			// fileInputEl.id = 'input-file';
-			// fileInputEl.accept = 'image/*';
-
-			// fileInputEl.addEventListener( 'change', fileSelected );
-
-			// var fileLabelButtonEl = elHelper.createLabel( 'file.import', 'input-file', 'file-button button' );
-			
-			// dialog.add( fileLabelEl, fileInputEl, fileLabelButtonEl );
-
-			// self.fileinput = fileInputEl;		
 		}
 		return FilterView;
 	}	

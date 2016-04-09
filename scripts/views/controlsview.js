@@ -25,11 +25,13 @@ define(
 			var FiltermenuEl = elHelper.createEl( 'div', 'controls-wrapper', controlsEl );
 			var FramemenuEl = elHelper.createEl( 'div', 'controls-wrapper', controlsEl );
 
+			var selected;
+
 			//var AdjustmenuEl = elHelper.createEl('div', 'menu-wrapper',controlsWrapperEl );
 			var buttonEl = elHelper.createButton( 'controls.controls', 'controls.controlstitle', 'controls-toggle-button button is-active', buttonParentEl, toggleControls );
 			
-			addFilter ('filter1');
-			addFilter ('filter2');
+			var ori_filter = addFilter ('Original');
+			addFilter ('Grayscale');
 			addFrame ('filter3');
 
 			for ( var key in params  ) {
@@ -43,9 +45,12 @@ define(
 		
 			function addFilter (name){
 				var filterfunc = function (){
+					setSelect(document.getElementById('filter.'+name));
 					publishers.filter.dispatch(name);
 				}
-				elHelper.createButton('controls.'+name,'controls.'+name,name+'-button image-button',FiltermenuEl,filterfunc);
+				var btnEl=elHelper.createButton('controls.'+name,'controls.'+name,name+'-button image-button',FiltermenuEl,filterfunc);
+				btnEl.setAttribute('id','filter.'+name);
+				return btnEl;
 
 			}
 
@@ -55,6 +60,12 @@ define(
 				}
 				elHelper.createButton('controls.'+name,'controls.'+name,name+'-button image-button',FramemenuEl,framefunc);
 
+			}
+
+			function setSelect(btnEl){
+				if (selected) selected.setAttribute('selected',false);
+				selected=btnEl;
+				selected.setAttribute('selected',true);
 			}
 
 
@@ -181,6 +192,7 @@ define(
 				FramemenuEl.style.display = "none";
 				AdjustmenuEl.style.display = "none";
 				FiltermenuEl.style.display = "flex";
+				setSelect(ori_filter);
 			}
 
 			function updateFrameMenu(){
