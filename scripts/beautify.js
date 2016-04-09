@@ -139,6 +139,13 @@ require([
         saveView
             .on( 'show', saveView.updateDownloadLink );
 
+        canvasControlsView
+            .on( 'center', canvasView.animateToCenter )
+            .on( 'scale', canvasView.setScale );
+
+        canvasView
+            .on( 'scale', canvasControlsView.setScale )
+            .on( 'dblclick', canvasView.animateToCenter );
     }
 
     function addCSSClasses() {
