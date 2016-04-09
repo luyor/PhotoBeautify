@@ -11,7 +11,7 @@ define(
 			params = params || { };
 
 			var self = this;
-			var publishers = addPublishers( self, 'update');
+			var publishers = addPublishers( self, 'update','filter','framesign');
 
 			var isIgnoringInput = false;
 			var isActive = true;
@@ -28,9 +28,9 @@ define(
 			//var AdjustmenuEl = elHelper.createEl('div', 'menu-wrapper',controlsWrapperEl );
 			var buttonEl = elHelper.createButton( 'controls.controls', 'controls.controlstitle', 'controls-toggle-button button is-active', buttonParentEl, toggleControls );
 			
-			var filter1 = elHelper.createButton('controls.filter1','filter1','filter1-button image-button',FiltermenuEl);
-			var filter2 = elHelper.createButton('controls.filter2','filter2','filter1-button image-button',FiltermenuEl);
-			var filter3 = elHelper.createButton('controls.filter3','filter3','filter1-button image-button',FramemenuEl);
+			addFilter ('filter1');
+			addFilter ('filter2');
+			addFrame ('filter3');
 
 			for ( var key in params  ) {
 				addControl( key, params[key] ,AdjustmenuEl);
@@ -41,6 +41,22 @@ define(
 
 			show();
 		
+			function addFilter (name){
+				var filterfunc = function (){
+					publishers.filter.dispatch(name);
+				}
+				elHelper.createButton('controls.'+name,'controls.'+name,name+'-button image-button',FiltermenuEl,filterfunc);
+
+			}
+
+			function addFrame (name){
+				var framefunc = function (){
+					publishers.framesign.dispatch(name);
+				}
+				elHelper.createButton('controls.'+name,'controls.'+name,name+'-button image-button',FramemenuEl,framefunc);
+
+			}
+
 
 			function loadInitialValues () {
 				// dispatch initial values when model is listening

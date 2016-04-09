@@ -26,7 +26,8 @@ require([
     'views/workspaceview',
     'views/welcomeview',
     'views/settingsview',
-    'models/imagemodel'
+    'models/imagemodel',
+    'models/imageprocess'
     // 'models/glitchmodel',
     // 'models/storagemodel',
     // 'models/sharemodel',
@@ -57,7 +58,8 @@ require([
     WorkspaceView,
     WelcomeView,
     SettingsView,
-    ImageModel
+    ImageModel,
+    ImageProcess
     // GlitchModel,
     // StorageModel,
     // ShareModel,
@@ -95,6 +97,7 @@ require([
     var fullscreenView = FullscreenView(workspaceView.el);
     var dragAndDropView = DragAndDropView(canvasView.el);
     var welcomeView = WelcomeView();
+    var imageProcess = ImageProcess();
 
 
     function init() {
@@ -116,7 +119,7 @@ require([
             .on( 'openfile', imageModel.loadFromFile )
 
         imageModel
-            .on( 'load', canvasView.putImageData )
+            .on( 'load', imageProcess.setimage )
             .on( 'load', openFileView.dialog.hide )
             .on( 'load', canvasView.animateToCenter )
             .on( 'load', canvasView.show )
@@ -139,6 +142,12 @@ require([
         canvasView
             .on( 'scale', canvasControlsView.setScale )
             .on( 'dblclick', canvasView.animateToCenter );
+
+        imageProcess
+            .on( 'updateimage' , canvasView.putImageData);
+
+        controlsView
+            .on( 'filter' , imageProcess.filter);
     }
 
     function addCSSClasses() {
