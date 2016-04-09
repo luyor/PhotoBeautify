@@ -2,9 +2,9 @@
 define(
 	[ 'util/el', 'util/addpublishers', 'util/browser', 'views/dialog', 'util/time' ],
 	function ( elHelper, addPublishers, browser, Dialog, timeHelper ) {
-		function SaveView ( parentEl , canvasView) {
+		function SaveView ( parentEl ) {
 			if ( ! ( this instanceof SaveView ) ) {
-				return new SaveView( parentEl ,canvasView);
+				return new SaveView( parentEl );
 			}
 
 			var self = this;
@@ -38,9 +38,9 @@ define(
 
 			// the href attribute of the download link is updated every time
 			// we change a parameter
-			function updateDownloadLink ( ) {
+			function updateDownloadLink ( url ) {
 				fileName = 'beautify.png';
-				var newUrl = canvasView.getImageSRC();
+				var newUrl = url;
 
 				// setting the download attribute makes the browser
 				// download the link target instead of opening it

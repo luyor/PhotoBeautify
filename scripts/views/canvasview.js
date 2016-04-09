@@ -9,7 +9,7 @@ define(
 			}
 
 			var self = this;
-			var publishers = addPublishers( self, 'update', 'imagesizechange', 'scale', 'dblclick' );
+			var publishers = addPublishers( self, 'update', 'imagesizechange', 'scale', 'dblclick' , 'updateurl');
 			var imageSize = { width: 0, height: 0 };
 			
 			var workspaceEl = elHelper.createEl( 'div', 'panzoom', parentEl );
@@ -48,6 +48,7 @@ define(
 
 				ctx.putImageData( imageData, 0, 0 );
 				panZoom.updateContainerBounds();
+				publishers.updateurl.dispatch(canvasEl.toDataURL( 'image/png' ));
 			}
 
 			function createImageUrl ( callback ) {
@@ -69,10 +70,6 @@ define(
 				}, 400 );
 			}
 
-			function getImageSRC(){
-				return canvasEl.toDataURL( 'image/png' );
-			}
-
 			self.putImageData = putImageData;
 			self.moveToCenter = panZoom.moveToCenter;
 			self.animateToCenter = panZoom.animateToCenter;
@@ -83,7 +80,6 @@ define(
 			self.resized = panZoom.resized;
 			self.el = workspaceEl;
 			self.panZoom = panZoom;
-			self.getImageSRC = getImageSRC;
 		}
 
 		return CanvasView;

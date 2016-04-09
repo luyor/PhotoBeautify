@@ -89,7 +89,7 @@ require([
     var adjustview = AdjustView(navView.el);
     var filterView = FilterView(navView.el);
     var frameView = FrameView(navView.el);
-    var saveView = SaveView(navView.el ,canvasView);
+    var saveView = SaveView(navView.el );
     var webcamView = WebCamView(navView.el);
     // var shareView = ShareView(navView.el);
     // var aboutView = AboutView(navView.el);
@@ -132,8 +132,6 @@ require([
             .on( 'drop', imageModel.loadFromFile )
             .on( 'drop', canvasView.hide );
 
-        saveView
-            .on( 'show', saveView.updateDownloadLink );
 
         canvasControlsView
             .on( 'center', canvasView.animateToCenter )
@@ -141,13 +139,14 @@ require([
 
         canvasView
             .on( 'scale', canvasControlsView.setScale )
-            .on( 'dblclick', canvasView.animateToCenter );
+            .on( 'dblclick', canvasView.animateToCenter )
+            .on( 'updateurl' , saveView.updateDownloadLink);
 
         imageProcess
             .on( 'updateimage' , canvasView.putImageData);
 
         controlsView
-            .on( 'filter' , imageProcess.filter);
+            .on( 'filter' , imageProcess.filter)
     }
 
     function addCSSClasses() {
