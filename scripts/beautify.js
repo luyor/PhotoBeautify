@@ -89,7 +89,7 @@ require([
     var adjustview = AdjustView(navView.el);
     var filterView = FilterView(navView.el);
     var frameView = FrameView(navView.el);
-    var saveView = SaveView(navView.el ,imageModel);
+    var saveView = SaveView(navView.el ,canvasView);
     var webcamView = WebCamView(navView.el);
     // var shareView = ShareView(navView.el);
     // var aboutView = AboutView(navView.el);
