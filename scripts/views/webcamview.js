@@ -16,7 +16,7 @@ define(
 			var stream;
 
 			var camOptions = {
-				video: true
+				video: { facingMode: "user" }
 			};
 
 			var urlLib;
@@ -45,7 +45,7 @@ define(
 
 			function startVideo ( event ) {
 				if ( ! isRecording ) {
-					navigator.getUserMedia( camOptions, gotCamStream, userMediaFailed );
+					navigator.webkitGetUserMedia( camOptions,gotCamStream,userMediaFailed)
 				}
 			}
 

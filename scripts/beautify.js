@@ -89,7 +89,7 @@ require([
     var adjustview = AdjustView(navView.el);
     var filterView = FilterView(navView.el);
     var frameView = FrameView(navView.el);
-    var saveView = SaveView(navView.el);
+    var saveView = SaveView(navView.el ,imageModel);
     var webcamView = WebCamView(navView.el);
     // var shareView = ShareView(navView.el);
     // var aboutView = AboutView(navView.el);
@@ -128,6 +128,16 @@ require([
             .on( 'load', canvasView.animateToCenter )
             .on( 'load', canvasView.show )
             .on( 'update', canvasView.hide )
+            .on( 'error', indicatorView.showError )
+            .on( 'error', indicatorView.hideLoading )
+            .on( 'statusmessage', indicatorView.showMessage );
+
+        dragAndDropView
+            .on( 'drop', imageModel.loadFromFile )
+            .on( 'drop', canvasView.hide );
+
+        saveView
+            .on( 'show', saveView.updateDownloadLink );
 
     }
 

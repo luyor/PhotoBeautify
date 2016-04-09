@@ -11,7 +11,7 @@ define(
 			}
 
 			var self = this;
-			var publishers = addPublishers( self, [ 'load', 'update', 'error', 'statusmessage' ] );
+			var publishers = addPublishers( self, [ 'load', 'update', 'error', 'statusmessage', 'updateDownloadLink' ] );
 			
 			var canvasEl = document.createElement( 'canvas' );
 			var ctx = canvasEl.getContext( '2d' );
@@ -58,7 +58,6 @@ define(
 				ctx.drawImage( videoEl, 0, 0 );
 
 				lastImageSrc = canvasEl.toDataURL( 'image/png' );
-				lastFileName = loc( 'webcam.picture', timeHelper.dateTimeToLocalStr( new Date() ) );
 												
 				checkImageData( ctx.getImageData( 0, 0, canvasEl.width, canvasEl.height ), publishers.load.dispatch );
 				
