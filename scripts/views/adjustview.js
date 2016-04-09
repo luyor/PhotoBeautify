@@ -26,8 +26,8 @@ define(
             navButtonEl.addEventListener( 'click', click );
 
             function click() {
-                publishers.updateControlView.dispatch( ["a", "b"] );
-                console.log("test")
+                publishers.updateControlView.dispatch();
+                //console.log("test")
             }
 			//dialog = Dialog( 'open-file-dialog', parentEl, navButtonEl );
 

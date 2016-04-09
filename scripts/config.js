@@ -7,10 +7,13 @@ define(
 				language: { value: 'en-us', options: [ 'en-us', 'en-gb', 'de-de', 'ru-ru' ] }
 			},
 			defaultControlParams:{
-				amount: {     min: 0, max: 99,  value: 24 },
-				seed: {       min: 0, max: 100, value: 53 },
-				iterations: { min: 0, max: 100, value: 21 },
-				quality: {    min: 1, max: 99,  value: 46 }
+				contrast: {     min: 0, max: 99,  value: 50 },
+				brightness: {       min: 0, max: 100, value: 50 },
+				exposure: { min: 0, max: 100, value: 50 },
+				warmth: {    min: 1, max: 99,  value: 50 },
+				saturation: {    min: 1, max: 99,  value: 50 },
+				sharpness:{ min:1, max:100, value:50}
+
 			},
 		};
 	}

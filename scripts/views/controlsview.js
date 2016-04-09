@@ -21,12 +21,23 @@ define(
 			var valueEls = { };
 
 			var controlsEl = elHelper.createEl( 'div', 'controls', parentEl );
-			var controlsWrapperEl = elHelper.createEl( 'div', 'controls-wrapper', controlsEl );
+			var AdjustmenuEl = elHelper.createEl( 'div', 'controls-wrapper', controlsEl );
+			var FiltermenuEl = elHelper.createEl( 'div', 'controls-wrapper', controlsEl );
+			var FramemenuEl = elHelper.createEl( 'div', 'controls-wrapper', controlsEl );
+
+			//var AdjustmenuEl = elHelper.createEl('div', 'menu-wrapper',controlsWrapperEl );
 			var buttonEl = elHelper.createButton( 'controls.controls', 'controls.controlstitle', 'controls-toggle-button button is-active', buttonParentEl, toggleControls );
 			
-			for ( var key in params ) {
-				addControl( key, params[key] );
+			var filter1 = elHelper.createButton('controls.filter1','filter1','filter1-button image-button',FiltermenuEl);
+			var filter2 = elHelper.createButton('controls.filter2','filter2','filter1-button image-button',FiltermenuEl);
+			var filter3 = elHelper.createButton('controls.filter3','filter3','filter1-button image-button',FramemenuEl);
+
+			for ( var key in params  ) {
+				addControl( key, params[key] ,AdjustmenuEl);
 			}
+			AdjustmenuEl.style.display = "none";
+			FiltermenuEl.style.display = "none";
+			FramemenuEl.style.display = "none";
 
 			show();
 			
@@ -41,8 +52,8 @@ define(
 				}
 			}
 
-			function addControl ( key, params ) {
-				var controlEl = elHelper.createEl( 'div', 'control', controlsWrapperEl );
+			function addControl ( key, params,parentEl ) {
+				var controlEl = elHelper.createEl( 'div', 'control', AdjustmenuEl );
 				
 				var labelEl = elHelper.createLabel( 'controls.' + key, 'input-' + key, 'control-label', controlEl );
 				loc( labelEl, 'title', 'controls.' + key );
@@ -149,17 +160,30 @@ define(
 			}
 
 
-			function updateControlButton( elements ) {
-				inputEls = { };
-				valueEls = { };
-				for (element in elements) {
-					addControl(element, 0);
-				}
+			function updateAdjustMenu() {
+				FiltermenuEl.style.display ="none";
+				FramemenuEl.style.display = "none";
+				AdjustmenuEl.style.display = "flex";	
+
+			}
+
+			function updateFilterMenu(){
+				FramemenuEl.style.display = "none";
+				AdjustmenuEl.style.display = "none";
+				FiltermenuEl.style.display = "flex";
+			}
+
+			function updateFrameMenu(){
+				FiltermenuEl.style.display ="none";
+				AdjustmenuEl.style.display = "none";
+				FramemenuEl.style.display = "flex";
 			}
 			
 			self.loadInitialValues = loadInitialValues;
 			self.setValue = setValue;
-			self.updateControlButton = updateControlButton;
+			self.updateAdjustMenu = updateAdjustMenu;
+			self.updateFilterMenu = updateFilterMenu;
+			self.updateFrameMenu = updateFrameMenu;
 		}
 
 		return ControlsView;

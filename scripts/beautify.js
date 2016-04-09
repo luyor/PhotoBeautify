@@ -98,6 +98,7 @@ require([
     var dragAndDropView = DragAndDropView(canvasView.el);
     var welcomeView = WelcomeView();
 
+
     function init() {
         addCSSClasses();
         addSubscribers();
@@ -113,11 +114,11 @@ require([
 
 
         adjustview
-            .on('updateControlView', controlsView.updateControlButton);
+            .on('updateControlView', controlsView.updateAdjustMenu);
         filterView
-            .on('updateControlView', controlsView.updateControlButton);
+            .on('updateControlView', controlsView.updateFilterMenu);
         frameView
-            .on('updateControlView', controlsView.updateControlButton);
+            .on('updateControlView', controlsView.updateFrameMenu);
 
         openFileView
             .on( 'openfile', imageModel.loadFromFile )
