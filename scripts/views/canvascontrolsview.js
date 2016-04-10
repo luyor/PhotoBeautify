@@ -10,11 +10,12 @@ define(
 			}
 
 			var self = this;
-			var publishers = addPublishers( self, 'update', 'center', 'scale','confirm');
+			var publishers = addPublishers( self, 'update', 'center', 'scale','confirm','reset');
 			var isIgnoringInput = false;
 			var el = elHelper.createEl( 'div', 'workspace-controls clear', parentEl );
 
-			elHelper.createButton( 'controls.confirm', 'controls.confirm', 'comfirm-button button', el, confirmButtonClicked );			
+			elHelper.createButton( 'controls.confirm', 'controls.confirm', 'comfirm-button button', el, confirmButtonClicked );		
+			elHelper.createButton( 'controls.reset', 'controls.reset', 'reset-button button', el, resetButtonClicked );		
 			elHelper.createButton( 'controls.center', 'controls.centertitle', 'center-button button', el, centerButtonClicked );
 			elHelper.createLabel( 'controls.zoom', 'control.zoomtitle', 'scale-label', el );
 
@@ -26,6 +27,12 @@ define(
 			scaleSliderEl.step = 0.001;
 			scaleSliderEl.addEventListener( 'input', scaleSliderChanged );
 			scaleSliderEl.addEventListener( 'change', scaleSliderChanged );
+
+
+			function resetButtonClicked (event){
+				publishers.reset.dispatch();
+				console.log("reset");
+			}
 
 			function confirmButtonClicked (event){
 				publishers.confirm.dispatch();

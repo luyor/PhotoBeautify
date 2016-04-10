@@ -9,7 +9,7 @@ define(
 			}
 
 			var self = this;
-			var publishers = addPublishers( self, 'update', 'imagesizechange', 'scale', 'dblclick' , 'updateurl');
+			var publishers = addPublishers( self, 'update', 'imagesizechange', 'scale', 'dblclick' , 'updateurl','setorigin');
 			var imageSize = { width: 0, height: 0 };
 			
 			var workspaceEl = elHelper.createEl( 'div', 'panzoom', parentEl );
@@ -70,6 +70,10 @@ define(
 				}, 400 );
 			}
 
+			function confirm(){
+				publishers.setorigin.dispatch(ctx.getImageData(0,0,canvasEl.width,canvasEl.height));
+			}
+
 			self.putImageData = putImageData;
 			self.moveToCenter = panZoom.moveToCenter;
 			self.animateToCenter = panZoom.animateToCenter;
@@ -80,6 +84,7 @@ define(
 			self.resized = panZoom.resized;
 			self.el = workspaceEl;
 			self.panZoom = panZoom;
+			self.confirm = confirm;
 		}
 
 		return CanvasView;

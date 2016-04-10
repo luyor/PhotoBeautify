@@ -30,7 +30,7 @@ define(
 			//var AdjustmenuEl = elHelper.createEl('div', 'menu-wrapper',controlsWrapperEl );
 			var buttonEl = elHelper.createButton( 'controls.controls', 'controls.controlstitle', 'controls-toggle-button button is-active', buttonParentEl, toggleControls );
 			
-			var ori_filter = addFilter ('Original');
+			//var ori_filter = addFilter ('Original');
 			addFilter ('Grayscale');
 			addFilter ('AgedFilter');
 			addFilter ('HahaFilter');
@@ -68,11 +68,12 @@ define(
 			function setSelect(btnEl){
 				if (selected) selected.setAttribute('selected',false);
 				selected=btnEl;
-				selected.setAttribute('selected',true);
+				if(btnEl) selected.setAttribute('selected',true);
 			}
 
 			function resetAll(){
-				setSelect(ori_filter);
+				setSelect(null);
+				reset();
 			}
 
 			function addControl ( key, params,parentEl ) {
@@ -119,6 +120,15 @@ define(
 						setValue(key, controlValues[key] );
 					}
 				}
+			}
+
+			function reset(){
+
+				setValue('contrast', 50);
+				setValue('brightness',50);
+				setValue('exposure',50);
+				setValue('warmth',50);
+				setValue('saturation',50);
 			}
 
 			function toggleControls () {
@@ -189,7 +199,7 @@ define(
 				FramemenuEl.style.display = "none";
 				AdjustmenuEl.style.display = "none";
 				FiltermenuEl.style.display = "flex";
-				setSelect(ori_filter);
+				setSelect(null);
 			}
 
 			function updateFrameMenu(){

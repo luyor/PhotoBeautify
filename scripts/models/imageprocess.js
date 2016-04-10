@@ -28,6 +28,14 @@ define(
 				publishers.updateimage.dispatch(imageData);
 			}
 
+			function reset(){
+				adjustvalue.contrast = 50;
+				adjustvalue.brightness = 50;
+				adjustvalue.exposure = 50;
+				adjustvalue.warmth =50;
+				adjustvalue.saturation = 50;
+				publishers.updateimage.dispatch(context.getImageData(0,0,ori.width,ori.height));
+			}
 
 			function adjust(key, values ){
 				adjustvalue[key] = values;
@@ -70,7 +78,7 @@ define(
 
 				publishers.updateimage.dispatch(newdata);
 			}
-
+			self.reset = reset;
 			self.adjust = adjust;
 			self.filter = filter;
 			self.setimage = setimage;

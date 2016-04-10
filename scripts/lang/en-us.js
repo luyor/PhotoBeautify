@@ -7,12 +7,9 @@ define(
 var text = {
     "lang": "en-US",
     "index": {
-        "title": "Image Glitch Tool",
+        "title": "Beautify Tool",
         "description": [
-            "With this app, you can glitch your own images by dragging an image into the browser window. You can use the sliders in the control panel to alter the glitched parameters. The image updates in real time.",
-            "This app corrupts some bytes in an image. Because of the way [JPEG encoding](https://en.wikipedia.org/wiki/JPEG) works, the corrupted file still shows a corrupted image. It was inspired by [soulwire](http://github.com/soulwire)’s [experiment](http://blog.soulwire.co.uk/laboratory/flash/as3-bitmapdata-glitch-generator) in Flash.",
-            "This tool was created by [Georg](http://snorpey.com/). He is always happy to learn about the things that people are creating with his tools. You can follow him on [Twitter](https://twitter.com/snorpey) or explore the source code of this app on [GitHub](https://github.com/snorpey/jpg-glitch).",
-            "If you like this glitch tool, you can check out some of Georg’s other [JavaScript experiments](http://snorpey.github.io/experiments/)."
+            ""
         ]
     },
     "settings": {
@@ -42,6 +39,7 @@ var text = {
         "randomize": "Randomize",
         "randomizetitle": "Randomize control values",
         "confirm":"Confirm",
+        "reset":"Reset",
         "center": "Center",
         "centertitle": "Fit image to screen",
         "original": "100%",

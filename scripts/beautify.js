@@ -135,20 +135,28 @@ require([
 
 
         canvasControlsView
+            .on( 'reset',controlsView.resetAll)
+            .on( 'reset',imageProcess.reset)
+            .on( 'confirm',canvasView.confirm)
+            .on( 'confirm',controlsView.resetAll)
             .on( 'center', canvasView.animateToCenter )
             .on( 'scale', canvasView.setScale );
 
         canvasView
             .on( 'scale', canvasControlsView.setScale )
             .on( 'dblclick', canvasView.animateToCenter )
+            .on( 'setorigin',imageProcess.setimage)
             .on( 'updateurl' , saveView.updateDownloadLink);
+
 
         imageProcess
             .on( 'updateimage' , canvasView.putImageData);
 
         controlsView
             .on( 'update', imageProcess.adjust)
-            .on( 'filter' , imageProcess.filter)
+            .on( 'filter' , controlsView.resetAll)
+            .on( 'filter' , imageProcess.filter);
+
     }
 
     function addCSSClasses() {
