@@ -43,6 +43,7 @@ var text = {
         "SharpnessFilter":"Sharpness",
         "BlurFilter":"Blur",
         "ReliefFilter":"Relief",
+        "MirrorFilter":"Mirror",
 
         "DiamondFrame":"Diamond",
         "BlackEdgeFrame":"BlackEdge",

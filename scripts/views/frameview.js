@@ -27,7 +27,6 @@ define(
 
 			function click() {
 				publishers.updateControlView.dispatch( ["a", "b"] );
-				console.log("test")
 			}
 			//dialog = Dialog( 'open-file-dialog', parentEl, navButtonEl );
 

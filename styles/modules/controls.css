@@ -129,7 +129,9 @@
 .CarnivalFilter-button::before {
 	background-image: url(../../images/filter/Carnival.png);
 }
-
+.MirrorFilter-button::before {
+	background-image: url(../../images/filter/Mirror.png);
+}
 
 
 .BlackEdgeFrame-button::before {

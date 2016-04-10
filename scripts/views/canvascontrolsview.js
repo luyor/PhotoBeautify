@@ -31,12 +31,11 @@ define(
 
 			function resetButtonClicked (event){
 				publishers.reset.dispatch();
-				console.log("reset");
+				
 			}
 
 			function confirmButtonClicked (event){
 				publishers.confirm.dispatch();
-				console.log("test");
 			}
 
 			function centerButtonClicked ( event ) {

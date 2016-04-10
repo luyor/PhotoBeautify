@@ -100,7 +100,6 @@ define(
 			}
 
 			function Addframe(name){
-				console.log('edgefff');
 				var canvas = document.createElement('canvas');
 				canvas.width = ori.width;
 				canvas.height = ori.height;
