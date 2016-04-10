@@ -39,6 +39,7 @@ define(
 			addFilter ('SharpnessFilter');
 			addFilter ('BlurFilter');
 			addFilter ('ReliefFilter');
+			addFilter ('CarnivalFilter');
 
 			addFrame ('filter3');
 

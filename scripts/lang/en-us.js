@@ -62,6 +62,7 @@ var text = {
         "SharpnessFilter":"Sharpness",
         "BlurFilter":"Blur",
         "ReliefFilter":"Relief",
+        "CarnivalFilter":"Carnival",
         "filter3":"333"
     },
     "nav": {
