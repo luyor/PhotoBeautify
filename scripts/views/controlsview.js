@@ -37,6 +37,7 @@ define(
 			for ( var key in params  ) {
 				addControl( key, params[key] ,AdjustmenuEl);
 			}
+			
 			AdjustmenuEl.style.display = "none";
 			FiltermenuEl.style.display = "none";
 			FramemenuEl.style.display = "none";
