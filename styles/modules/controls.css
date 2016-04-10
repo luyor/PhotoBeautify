@@ -123,6 +123,15 @@
 .BlurFilter-button::before {
 	background-image: url(../../images/filter/Blur.png);
 }
+.ReliefFilter-button::before {
+	background-image: url(../../images/filter/Relief.png);
+}
+.CarnivalFilter-button::before {
+	background-image: url(../../images/filter/Carnival.png);
+}
+
+
+
 .BlackEdgeFrame-button::before {
 	background-image: url(../../images/frame/BlackEdge.png);
 }
