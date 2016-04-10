@@ -34,6 +34,8 @@ define(
 			addFilter ('Grayscale');
 			addFilter ('AgedFilter');
 			addFilter ('HahaFilter');
+			addFilter ('IcedFilter');
+			addFilter ('TileFilter');
 			addFrame ('filter3');
 
 			for ( var key in params  ) {

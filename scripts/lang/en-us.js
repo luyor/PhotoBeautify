@@ -57,6 +57,8 @@ var text = {
         "Grayscale":"Grayscale",
         "AgedFilter":"Aged",
         "HahaFilter":"Magnify",
+        "IcedFilter":"Iced",
+        "TileFilter":"Tile",
         "filter3":"333"
     },
     "nav": {

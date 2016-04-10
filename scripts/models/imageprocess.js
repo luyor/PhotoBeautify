@@ -73,6 +73,12 @@ define(
 					case 'HahaFilter':
 						filtermodel.HahaFilter(newdata);
 						break;
+					case 'IcedFilter':
+						filtermodel.IcedFilter(newdata);
+						break;
+					case 'TileFilter':
+						filtermodel.TileFilter(newdata);
+						break;
 
 				}
 
