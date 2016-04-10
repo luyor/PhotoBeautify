@@ -40,6 +40,7 @@ define(
 			addFilter ('BlurFilter');
 			addFilter ('ReliefFilter');
 			addFilter ('CarnivalFilter');
+			addFilter ('MirrorFilter');
 
 			
 			addFrame ('BlackEdgeFrame');
