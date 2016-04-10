@@ -62,7 +62,7 @@ var text = {
         "SharpnessFilter":"Sharpness",
         "BlurFilter":"Blur",
         "ReliefFilter":"Relief",
-        "filter3":"333"
+        "GreenEdgeFrame":"GreenEdge"
     },
     "nav": {
         "menu": "Menu",

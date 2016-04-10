@@ -1,7 +1,7 @@
 /*global define*/
 define(
-	[ 'util/browser', 'util/addpublishers', 'util/canvas', 'util/localizetext','models/filtermodel' ,'models/adjustmodel'],
-	function ( browser, addPublishers , canvasHelper, loc, filtermodel,adjustmodel ) {
+	[ 'util/browser', 'util/addpublishers', 'util/canvas', 'util/localizetext','models/filtermodel' ,'models/adjustmodel','models/framemodel'],
+	function ( browser, addPublishers , canvasHelper, loc, filtermodel,adjustmodel,framemodel ) {
 		
 		function ProcessModel () {
 			if ( ! ( this instanceof ProcessModel ) ) {
@@ -93,9 +93,31 @@ define(
 
 				publishers.updateimage.dispatch(newdata);
 			}
+
+			function Addframe(name){
+				console.log('edgefff');
+				var canvas = document.createElement('canvas');
+				canvas.width = ori.width;
+				canvas.height = ori.height;
+				var new_context = canvas.getContext('2d');
+				new_context.drawImage(ori,0,0);
+				var newdata=new_context.getImageData(0,0,canvas.width,canvas.height);
+
+				switch(name){
+					case 'GreenEdgeFrame':
+						framemodel.GreenEdgeFrame(newdata);
+						break; 
+					
+
+				}
+
+				publishers.updateimage.dispatch(newdata);
+			}
+
 			self.reset = reset;
 			self.adjust = adjust;
 			self.filter = filter;
+			self.Addframe = Addframe;
 			self.setimage = setimage;
 			
 		}

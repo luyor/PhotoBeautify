@@ -154,7 +154,8 @@ require([
 
         controlsView
             .on( 'update', imageProcess.adjust)
-            .on( 'filter' , imageProcess.filter);
+            .on( 'filter' , imageProcess.filter)
+            .on( 'framesign' , imageProcess.Addframe);
 
     }
 

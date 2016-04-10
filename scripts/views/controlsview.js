@@ -40,7 +40,8 @@ define(
 			addFilter ('BlurFilter');
 			addFilter ('ReliefFilter');
 
-			addFrame ('filter3');
+
+			addFrame ('GreenEdgeFrame');
 
 			for ( var key in params  ) {
 				addControl( key, params[key] ,AdjustmenuEl);
@@ -67,6 +68,7 @@ define(
 			function addFrame (name){
 				var framefunc = function (){
 					publishers.framesign.dispatch(name);
+					console.log('edge');
 				}
 				elHelper.createButton('controls.'+name,'controls.'+name,name+'-button image-button',FramemenuEl,framefunc);
 
