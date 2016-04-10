@@ -4,20 +4,6 @@ define(
 	function ( browser, addPublishers , canvasHelper, loc ) {
 		
 		var framemodel = {};
-		var frame_canvas = document.createElement('canvas');
-		var frame_context = frame_canvas.getContext('2d');
-		var imageObj = new Image();
-		imageObj.src = "GreenEdge.JPG";
-		imageObj.onload = function() {
-			frame_canvas.width=imageObj.width;
-			frame_canvas.height=imageObj.height;
-    		frame_context.drawImage(imageObj, 0, 0);
-		}
-		
-		function GreenEdgeFrame(imagedata){
-
-			frame_context.getImageData(0,0,frame_canvas.width,frame_canvas.height);
-		}
 
 		function BlackEdgeFrame(imagedata){
 

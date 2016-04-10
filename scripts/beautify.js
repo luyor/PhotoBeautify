@@ -133,6 +133,9 @@ require([
             .on( 'drop', imageModel.loadFromFile )
             .on( 'drop', canvasView.hide );
 
+        webcamView
+            .on( 'video', imageModel.loadFromVideo );
+
 
         canvasControlsView
             .on( 'reset',controlsView.resetAll)

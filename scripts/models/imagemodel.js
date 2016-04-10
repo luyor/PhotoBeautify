@@ -56,7 +56,7 @@ define(
 				ctx.translate( canvasEl.width, 0 );
 				ctx.scale( -1, 1 );
 				ctx.drawImage( videoEl, 0, 0 );
-
+				
 				lastImageSrc = canvasEl.toDataURL( 'image/png' );
 												
 				checkImageData( ctx.getImageData( 0, 0, canvasEl.width, canvasEl.height ), publishers.load.dispatch );
