@@ -7,14 +7,16 @@ define(
 		var frame_canvas = document.createElement('canvas');
 		var frame_context = frame_canvas.getContext('2d');
 		var imageObj = new Image();
-		imageObj.src = "http://www.cosy.sbg.ac.at/~pmeerw/Watermarking/lena_color.gif";
+		imageObj.src = "GreenEdge.JPG";
 		imageObj.onload = function() {
-    			frame_context.drawImage(imageObj, 0, 0);
+			frame_canvas.width=imageObj.width;
+			frame_canvas.height=imageObj.height;
+    		frame_context.drawImage(imageObj, 0, 0);
 		}
-
+		
 		function GreenEdgeFrame(imagedata){
 
-			frame_context
+			frame_context.getImageData(0,0,frame_canvas.width,frame_canvas.height);
 			//var frame_canvas = document.createElement('canvas');
 			//xvar frame_context = frame_canvas.getContext('2d');
 

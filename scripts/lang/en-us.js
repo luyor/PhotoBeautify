@@ -66,7 +66,7 @@ var text = {
         "GreenEdgeFrame":"GreenEdge",
 
         "CarnivalFilter":"Carnival"
- 
+    },
     "nav": {
         "menu": "Menu",
         "menutitle": "Toggle the main menu"

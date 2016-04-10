@@ -68,11 +68,13 @@ define(
 
 			function addFrame (name){
 				var framefunc = function (){
+					resetAll();
+					setSelect(document.getElementById('frame.'+name));
 					publishers.framesign.dispatch(name);
-					console.log('edge');
 				}
-				elHelper.createButton('controls.'+name,'controls.'+name,name+'-button image-button',FramemenuEl,framefunc);
-
+				var btnEl=elHelper.createButton('controls.'+name,'controls.'+name,name+'-button image-button',FramemenuEl,framefunc);
+				btnEl.setAttribute('id','frame.'+name);
+				return btnEl
 			}
 
 			function setSelect(btnEl){
