@@ -44,9 +44,14 @@ define(
 			
 			addFrame ('BlackEdgeFrame');
 			addFrame('CircleFrame');
-			addFrame ('DiamondFrame');
+			addFrame('RainyFrame');
+			addFrame('FlowerFrame');
 			addFrame('VintageFrame');
-			addFrame('LoveFrame');
+			addFrame ('DiamondFrame');
+			addFrame('LoveFrame');		
+			addFrame('WhiteSpotFrame');
+			addFrame('StarFrame');
+
 
 
 			for ( var key in params  ) {

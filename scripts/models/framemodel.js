@@ -4,9 +4,13 @@ define(
 	function ( browser, addPublishers , canvasHelper, loc ) {
 		
 		var framemodel = {};
-		var diamond_canvas = AddFrameData('WhiteSpot');
+		var diamond_canvas = AddFrameData('Diamond');
 		var vintage_canvas = AddFrameData('Vintage');
 		var love_canvas = AddFrameData('Love');
+		var flower_canvas = AddFrameData('Flower');
+		var rainy_canvas = AddFrameData('Rainy');
+		var whitespot_canvas = AddFrameData('WhiteSpot');
+		var star_canvas = AddFrameData('Star');
 		
 		function AddFrameData(name){
 			var frame_canvas = document.createElement('canvas');
@@ -28,7 +32,7 @@ define(
 			var newcontext = newcanvas.getContext('2d');
 			newcanvas.width=imagedata.width;
 			newcanvas.height=imagedata.height;
-			newcontext.drawImage(diamond_canvas,0,0,newcanvas.width,newcanvas.height);
+			newcontext.drawImage(canvas,0,0,newcanvas.width,newcanvas.height);
 
 			framedata = newcontext.getImageData(0,0,newcanvas.width,newcanvas.height);
 			return framedata;
@@ -65,6 +69,95 @@ define(
 			return imagedata;
 		}
 		framemodel.VintageFrame = VintageFrame;
+
+		function FlowerFrame(imagedata){
+			var framedata = Resize(flower_canvas,imagedata);
+			var framed = framedata.data;
+			var d = imagedata.data;
+			for (var i=0; i<d.length; i+=4) {
+				var gray = (framed[i]+framed[i+1]+framed[i+2])/3;
+				if(gray<20){}
+				else if(gray <50 && gray>=20){
+					var scale = (framed[i]+framed[i]+framed[i])/3/255;
+					d[i] = framed[i]*scale+d[i]*(1-scale);
+			    	d[i+1] = framed[i+1]*scale+d[i+1]*(1-scale);
+			    	d[i+2] = framed[i+2]*scale+d[i+2]*(1-scale);
+				}
+				else{
+					d[i] = framed[i];
+					d[i+1] = framed[i+1];
+			    	d[i+2] = framed[i+2];
+				}
+							    
+  			}
+			return imagedata;
+		}
+		framemodel.FlowerFrame = FlowerFrame;
+
+		function RainyFrame(imagedata){
+			var framedata = Resize(rainy_canvas,imagedata);
+			var framed = framedata.data;
+			var d = imagedata.data;
+			for (var i=0; i<d.length; i+=4) {
+				var gray = (framed[i]+framed[i+1]+framed[i+2])/3;
+				if(gray<20){}
+				else if(gray <50 && gray>=20){
+					var scale = (framed[i]+framed[i]+framed[i])/3/255;
+					d[i] = framed[i]*scale+d[i]*(1-scale);
+			    	d[i+1] = framed[i+1]*scale+d[i+1]*(1-scale);
+			    	d[i+2] = framed[i+2]*scale+d[i+2]*(1-scale);
+				}
+				else{
+					d[i] = framed[i];
+					d[i+1] = framed[i+1];
+			    	d[i+2] = framed[i+2];
+				}
+							    
+  			}
+			return imagedata;
+		}
+		framemodel.RainyFrame = RainyFrame;
+
+
+
+		function WhiteSpotFrame(imagedata){
+			var framedata = Resize(whitespot_canvas,imagedata);
+			var framed = framedata.data;
+			var d = imagedata.data;
+			for (var i=0; i<d.length; i+=4) {
+				var scale = (framed[i]+framed[i]+framed[i])/3/255;
+				d[i] = framed[i]*scale+d[i]*(1-scale);
+			    d[i+1] = framed[i+1]*scale+d[i+1]*(1-scale);
+			    d[i+2] = framed[i+2]*scale+d[i+2]*(1-scale);
+							    
+  			}
+			return imagedata;
+		}
+		framemodel.WhiteSpotFrame = WhiteSpotFrame;
+
+		function StarFrame(imagedata){
+			var framedata = Resize(star_canvas,imagedata);
+			var framed = framedata.data;
+			var d = imagedata.data;
+			for (var i=0; i<d.length; i+=4) {
+				var gray = (framed[i]+framed[i+1]+framed[i+2])/3;
+				if(gray<20){}
+				else if(gray <50 && gray>=20){
+					var scale = (framed[i]+framed[i]+framed[i])/3/255;
+					d[i] = framed[i]*scale+d[i]*(1-scale);
+			    	d[i+1] = framed[i+1]*scale+d[i+1]*(1-scale);
+			    	d[i+2] = framed[i+2]*scale+d[i+2]*(1-scale);
+				}
+				else{
+					d[i] = framed[i];
+					d[i+1] = framed[i+1];
+			    	d[i+2] = framed[i+2];
+				}
+							    
+  			}
+			return imagedata;
+		}
+		framemodel.StarFrame = StarFrame;
 
 		function LoveFrame(imagedata){
 			var framedata = Resize(love_canvas,imagedata);

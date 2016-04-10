@@ -147,6 +147,18 @@
 .LoveFrame-button::before {
 	background-image: url(../../images/frame/Love.png);
 }
+.FlowerFrame-button::before {
+	background-image: url(../../images/frame/Flower.png);
+}
+.RainyFrame-button::before {
+	background-image: url(../../images/frame/Rainy.png);
+}
+.WhiteSpotFrame-button::before {
+	background-image: url(../../images/frame/WhiteSpot.png);
+}
+.StarFrame-button::before {
+	background-image: url(../../images/frame/star.png);
+}
 
 
 

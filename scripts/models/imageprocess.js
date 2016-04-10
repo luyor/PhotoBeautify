@@ -122,6 +122,18 @@ define(
 					case 'LoveFrame':
 						framemodel.LoveFrame(newdata);
 						break;
+					case 'FlowerFrame':
+						framemodel.FlowerFrame(newdata);
+						break;
+					case 'RainyFrame':
+						framemodel.RainyFrame(newdata);
+						break;
+					case 'WhiteSpotFrame':
+						framemodel.WhiteSpotFrame(newdata);
+						break;
+					case 'StarFrame':
+						framemodel.StarFrame(newdata);
+						break;
 					
 
 				}
