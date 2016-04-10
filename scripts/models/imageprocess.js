@@ -91,6 +91,8 @@ define(
 					case 'CarnivalFilter':
 						filtermodel.CarnivalFilter(newdata);
 						break;
+					case 'MirrorFilter':
+						filtermodel.MirrorFilter(newdata);
 
 				}
 

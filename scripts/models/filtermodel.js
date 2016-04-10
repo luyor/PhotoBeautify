@@ -345,6 +345,29 @@ define(
 		}
 		filter.CarnivalFilter=CarnivalFilter;
 
+		function MirrorFilter(imagedata){
+			var width=imagedata.width;
+			var height=imagedata.height;
+			var dst = [];
+
+			for(var i=0; i<width; i++){
+				for(var j=0;j<height;j++){
+					var color=getPixel(imagedata,{x:i,y:j});
+					dst[width-i+j*width]=color;
+				}
+			}
+
+			for(var i=0; i<width; i++){
+				for(var j=0;j<height;j++){
+					if (!dst[i+j*width]) dst[i+j*width]={r:0,g:0,b:0};
+					setPixel(imagedata,{x:i,y:j},dst[i+j*width]);
+				}
+			}
+
+			return imagedata;
+		}
+		filter.MirrorFilter=MirrorFilter;
+
 
 		function addcolor(dst,index,color,ratio){
 			if (!dst[index]) {
