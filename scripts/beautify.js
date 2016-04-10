@@ -123,6 +123,7 @@ require([
             .on( 'load', openFileView.dialog.hide )
             .on( 'load', canvasView.animateToCenter )
             .on( 'load', canvasView.show )
+            .on( 'load', controlsView.resetAll)
             .on( 'update', canvasView.hide )
             .on( 'error', indicatorView.showError )
             .on( 'error', indicatorView.hideLoading )

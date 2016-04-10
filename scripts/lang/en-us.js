@@ -57,6 +57,8 @@ var text = {
         "fullscreentitle": "Toggle Fullscreen",
         "Original":"Original",
         "Grayscale":"Grayscale",
+        "AgedFilter":"Aged",
+        "HahaFilter":"Magnify",
         "filter3":"333"
     },
     "nav": {

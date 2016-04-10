@@ -36,6 +36,12 @@ define(
 					case 'Grayscale':
 						filtermodel.Grayscale(newdata);
 						break;
+					case 'AgedFilter':
+						filtermodel.AgedFilter(newdata);
+						break;
+					case 'HahaFilter':
+						filtermodel.HahaFilter(newdata);
+						break;
 
 				}
 
