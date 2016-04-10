@@ -64,7 +64,7 @@ var text = {
         "ReliefFilter":"Relief",
 
         "BlackEdgeFrame":"BlackEdge",
-
+        "CircleFrame":"Circle",
         "CarnivalFilter":"Carnival"
     },
     "nav": {
