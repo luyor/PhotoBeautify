@@ -63,9 +63,10 @@ var text = {
         "BlurFilter":"Blur",
         "ReliefFilter":"Relief",
 
-        "GreenEdgeFrame":"GreenEdge",
+        "BlackEdgeFrame":"BlackEdge",
 
         "CarnivalFilter":"Carnival"
+    },
  
     "nav": {
         "menu": "Menu",

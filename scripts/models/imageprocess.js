@@ -107,9 +107,12 @@ define(
 				var newdata=new_context.getImageData(0,0,canvas.width,canvas.height);
 
 				switch(name){
-					case 'GreenEdgeFrame':
-						framemodel.GreenEdgeFrame(newdata);
+					case 'BlackEdgeFrame':
+						framemodel.BlackEdgeFrame(newdata);
 						break; 
+					case 'CircleFrame':
+						framemodel.CircleFrame(newdata);
+						break;
 					
 
 				}

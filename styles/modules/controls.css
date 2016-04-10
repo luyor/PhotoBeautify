@@ -123,6 +123,12 @@
 .BlurFilter-button::before {
 	background-image: url(../../images/filter/Blur.png);
 }
+.BlackEdgeFrame-button::before {
+	background-image: url(../../images/frame/BlackEdge.png);
+}
+.CircleFrame-button::before {
+	background-image: url(../../images/frame/Circle.png);
+}
 
 
 
