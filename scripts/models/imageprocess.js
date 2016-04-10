@@ -79,6 +79,12 @@ define(
 					case 'TileFilter':
 						filtermodel.TileFilter(newdata);
 						break;
+					case 'SharpnessFilter':
+						filtermodel.SharpnessFilter(newdata);
+						break;
+					case 'BlurFilter':
+						filtermodel.BlurFilter(newdata);
+						break;
 
 				}
 

@@ -36,6 +36,9 @@ define(
 			addFilter ('HahaFilter');
 			addFilter ('IcedFilter');
 			addFilter ('TileFilter');
+			addFilter ('SharpnessFilter');
+			addFilter ('BlurFilter');
+
 			addFrame ('filter3');
 
 			for ( var key in params  ) {

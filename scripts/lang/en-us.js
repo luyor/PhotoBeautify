@@ -59,6 +59,8 @@ var text = {
         "HahaFilter":"Magnify",
         "IcedFilter":"Iced",
         "TileFilter":"Tile",
+        "SharpnessFilter":"Sharpness",
+        "BlurFilter":"Blur",
         "filter3":"333"
     },
     "nav": {

@@ -180,6 +180,119 @@ define(
 		}
 		filter.TileFilter= TileFilter;
 
+		function SharpnessFilter(imagedata){
+			d = imagedata.data;
+  			var weights =[];			
+  			weights[1] = weights[3] = weights[5] = weights[7] = -1;
+  			weights[4] = 5;
+  			weights[0] = weights[2] = weights[6] = weights[8] =0;
+
+  			var w = imagedata.width;
+  			var h = imagedata.height;
+  			var side = Math.round(Math.sqrt(weights.length));
+		    var halfSide = Math.floor(side/2);
+		  	var dst = [];
+		  	// go through the destination image pixels
+		  	var alphaFac = 0; //opaque ? 1 : 0;
+		  	for (var y=0; y<h; y++) {
+		    	for (var x=0; x<w; x++) {
+		      		var sy = y;
+		      		var sx = x;
+		      		var dstOff = (y*w+x)*4;
+		      		// calculate the weighed sum of the source image pixels that
+		      		// fall under the convolution matrix
+		      		var r=0, g=0, b=0, a=0;
+		      		for (var cy=0; cy<side; cy++) {
+		        		for (var cx=0; cx<side; cx++) {
+		          			var scy = sy + cy - halfSide;
+		          			var scx = sx + cx - halfSide;
+		          			if (scy >= 0 && scy < h && scx >= 0 && scx < w) {
+		            			var srcOff = (scy*w+scx)*4;
+		            			var wt = weights[cy*side+cx];
+		            			r += d[srcOff] * wt;
+		            			g += d[srcOff+1] * wt;
+		            			b += d[srcOff+2] * wt;
+		            			a += d[srcOff+3] * wt;
+		          			}
+		        		}
+		      		}
+		      		dst[dstOff] = r;
+		      		dst[dstOff+1] = g;
+		      		dst[dstOff+2] = b;
+		      		dst[dstOff+3] = a + alphaFac*(255-a);
+		    	}
+			}
+
+			for (var i=0; i<d.length; i++) {
+			  	
+			    d[i] = dst[i];
+			    
+			    if(d[i]>255) d[i] = 255;
+			    if(d[i]<0) d[i] = 0;
+  			}
+  			return imagedata;
+
+		}
+		filter.SharpnessFilter = SharpnessFilter;
+
+
+		function BlurFilter(imagedata){
+			d = imagedata.data;
+  			var weights =[];			
+  			weights[12] = 1/25;
+  			weights[7] = weights[11] = weights[13] = weights[17] = 1/25;
+  			weights[2] = weights[6] = weights[8] = weights[10] = weights[14] = weights[16] = weights[18] = weights[22]= 1/25;
+  			weights[0] = weights[1] = weights[3] = weights[4] = weights[5] = weights[9] = weights[15] = weights[19]= weights[20]= weights[21]= weights[23]= weights[24]= 1/25;
+
+  			var w = imagedata.width;
+  			var h = imagedata.height;
+  			var side = Math.round(Math.sqrt(weights.length));
+		    var halfSide = Math.floor(side/2);
+		  	var dst = [];
+		  	// go through the destination image pixels
+		  	var alphaFac = 0; //opaque ? 1 : 0;
+		  	for (var y=0; y<h; y++) {
+		    	for (var x=0; x<w; x++) {
+		      		var sy = y;
+		      		var sx = x;
+		      		var dstOff = (y*w+x)*4;
+		      		// calculate the weighed sum of the source image pixels that
+		      		// fall under the convolution matrix
+		      		var r=0, g=0, b=0, a=0;
+		      		for (var cy=0; cy<side; cy++) {
+		        		for (var cx=0; cx<side; cx++) {
+		          			var scy = sy + cy - halfSide;
+		          			var scx = sx + cx - halfSide;
+		          			if (scy >= 0 && scy < h && scx >= 0 && scx < w) {
+		            			var srcOff = (scy*w+scx)*4;
+		            			var wt = weights[cy*side+cx];
+		            			r += d[srcOff] * wt;
+		            			g += d[srcOff+1] * wt;
+		            			b += d[srcOff+2] * wt;
+		            			a += d[srcOff+3] * wt;
+		          			}
+		        		}
+		      		}
+		      		dst[dstOff] = r;
+		      		dst[dstOff+1] = g;
+		      		dst[dstOff+2] = b;
+		      		dst[dstOff+3] = a + alphaFac*(255-a);
+		    	}
+			}
+
+			for (var i=0; i<d.length; i++) {
+			  	
+			    d[i] = dst[i];
+			    
+			    if(d[i]>255) d[i] = 255;
+			    if(d[i]<0) d[i] = 0;
+  			}
+  			return imagedata;
+
+		}
+		filter.BlurFilter = BlurFilter;
+
+
 		function addcolor(dst,index,color,ratio){
 			if (!dst[index]) {
 				dst[index]={};
