@@ -7,17 +7,112 @@ define(
 		var frame_canvas = document.createElement('canvas');
 		var frame_context = frame_canvas.getContext('2d');
 		var imageObj = new Image();
-		imageObj.src = "GreenEdge.JPG";
+		imageObj.src = "images/frame/Diamond.JPG";
 		imageObj.onload = function() {
 			frame_canvas.width=imageObj.width;
 			frame_canvas.height=imageObj.height;
     		frame_context.drawImage(imageObj, 0, 0);
 		}
-		
-		function GreenEdgeFrame(imagedata){
 
-			frame_context.getImageData(0,0,frame_canvas.width,frame_canvas.height);
+		var frame_canvas1 = document.createElement('canvas');
+		var frame_context1 = frame_canvas1.getContext('2d');
+		var imageObj1 = new Image();
+		imageObj1.src = "images/frame/Vintage.JPG";
+		imageObj1.onload = function() {
+			frame_canvas1.width=imageObj1.width;
+			frame_canvas1.height=imageObj1.height;
+    		frame_context1.drawImage(imageObj1, 0, 0);
 		}
+
+		var frame_canvas2 = document.createElement('canvas');
+		var frame_context2 = frame_canvas1.getContext('2d');
+		var imageObj2 = new Image();
+		imageObj2.src = "images/frame/Love.JPG";
+		imageObj2.onload = function() {
+			frame_canvas2.width=imageObj2.width;
+			frame_canvas2.height=imageObj2.height;
+    		frame_context2.drawImage(imageObj2, 0, 0);
+		}
+
+		
+		function DiamondFrame(imagedata){
+			var framedata = frame_context.getImageData(0,0,frame_canvas.width,frame_canvas.height);
+			var framed = framedata.data;
+
+			var newcanvas = document.createElement('canvas');
+			var newcontext = newcanvas.getContext('2d');
+			newcanvas.width=imagedata.width;
+			newcanvas.height=imagedata.height;
+			newcontext.drawImage(frame_canvas,0,0,newcanvas.width,newcanvas.height);
+
+			var testdata = newcontext.getImageData(0,0,newcanvas.width,newcanvas.height);
+
+			framedata = newcontext.getImageData(0,0,newcanvas.width,newcanvas.height);
+			framed = framedata.data;
+			var d = imagedata.data;
+			for (var i=0; i<d.length; i+=4) {
+				var scale = (framed[i]+framed[i]+framed[i])/3/255;
+				d[i] = framed[i]*scale+d[i]*(1-scale);
+			    d[i+1] = framed[i+1]*scale+d[i+1]*(1-scale);
+			    d[i+2] = framed[i+2]*scale+d[i+2]*(1-scale);
+							    
+  			}
+			return imagedata;
+		}
+		framemodel.DiamondFrame = DiamondFrame;
+
+		function VintageFrame(imagedata){
+			var framedata = frame_context1.getImageData(0,0,frame_canvas1.width,frame_canvas1.height);
+			var framed = framedata.data;
+
+			var newcanvas = document.createElement('canvas');
+			var newcontext = newcanvas.getContext('2d');
+			newcanvas.width=imagedata.width;
+			newcanvas.height=imagedata.height;
+			newcontext.drawImage(frame_canvas1,0,0,newcanvas.width,newcanvas.height);
+
+			var testdata = newcontext.getImageData(0,0,newcanvas.width,newcanvas.height);
+
+			framedata = newcontext.getImageData(0,0,newcanvas.width,newcanvas.height);
+			framed = framedata.data;
+			var d = imagedata.data;
+			for (var i=0; i<d.length; i+=4) {
+				var scale = (framed[i]+framed[i]+framed[i])/3/255;
+				d[i] = framed[i]*(1-scale)+d[i]*scale;
+			    d[i+1] = framed[i+1]*(1-scale)+d[i+1]*scale;
+			    d[i+2] = framed[i+2]*(1-scale)+d[i+2]*scale;
+							    
+  			}
+			return imagedata;
+		}
+		framemodel.VintageFrame = VintageFrame;
+
+		function LoveFrame(imagedata){
+			var framedata = frame_context2.getImageData(0,0,frame_canvas2.width,frame_canvas2.height);
+			var framed = framedata.data;
+
+			var newcanvas = document.createElement('canvas');
+			var newcontext = newcanvas.getContext('2d');
+			newcanvas.width=imagedata.width;
+			newcanvas.height=imagedata.height;
+			newcontext.drawImage(frame_canvas1,0,0,newcanvas.width,newcanvas.height);
+
+			var testdata = newcontext.getImageData(0,0,newcanvas.width,newcanvas.height);
+
+			framedata = newcontext.getImageData(0,0,newcanvas.width,newcanvas.height);
+			framed = framedata.data;
+			var d = imagedata.data;
+			for (var i=0; i<d.length; i+=4) {
+				var scale = (framed[i]+framed[i]+framed[i])/3/255;
+				d[i] = framed[i]*scale+d[i]*(1-scale);
+			    d[i+1] = framed[i+1]*scale+d[i+1]*(1-scale);
+			    d[i+2] = framed[i+2]*scale+d[i+2]*(1-scale);
+							    
+  			}
+			return imagedata;
+		}
+		framemodel.LoveFrame = LoveFrame;
+
 
 		function BlackEdgeFrame(imagedata){
 
@@ -85,7 +180,7 @@ define(
 		    }
 			return imagedata;
 		}
-
+		
 		framemodel.BlackEdgeFrame = BlackEdgeFrame;
 		framemodel.CircleFrame = CircleFrame;
 

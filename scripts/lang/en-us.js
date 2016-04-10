@@ -63,8 +63,11 @@ var text = {
         "BlurFilter":"Blur",
         "ReliefFilter":"Relief",
 
+        "DiamondFrame":"Diamond",
         "BlackEdgeFrame":"BlackEdge",
         "CircleFrame":"Circle",
+        "VintageFrame":"Vintage",
+        "LoveFrame":"Love",
         "CarnivalFilter":"Carnival"
     },
     "nav": {

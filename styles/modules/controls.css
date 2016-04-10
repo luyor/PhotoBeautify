@@ -138,7 +138,15 @@
 .CircleFrame-button::before {
 	background-image: url(../../images/frame/Circle.png);
 }
-
+.DiamondFrame-button::before {
+	background-image: url(../../images/frame/Diamond.png);
+}
+.VintageFrame-button::before {
+	background-image: url(../../images/frame/Vintage.png);
+}
+.LoveFrame-button::before {
+	background-image: url(../../images/frame/Love.png);
+}
 
 
 

@@ -41,9 +41,13 @@ define(
 			addFilter ('ReliefFilter');
 			addFilter ('CarnivalFilter');
 
-
+			
 			addFrame ('BlackEdgeFrame');
 			addFrame('CircleFrame');
+			addFrame ('DiamondFrame');
+			addFrame('VintageFrame');
+			addFrame('LoveFrame');
+
 
 			for ( var key in params  ) {
 				addControl( key, params[key] ,AdjustmenuEl);

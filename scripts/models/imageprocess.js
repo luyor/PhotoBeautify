@@ -107,11 +107,20 @@ define(
 				var newdata=new_context.getImageData(0,0,canvas.width,canvas.height);
 
 				switch(name){
+					case'DiamondFrame':
+						framemodel.DiamondFrame(newdata);
+						break;
 					case 'BlackEdgeFrame':
 						framemodel.BlackEdgeFrame(newdata);
 						break; 
 					case 'CircleFrame':
 						framemodel.CircleFrame(newdata);
+						break;
+					case 'VintageFrame':
+						framemodel.VintageFrame(newdata);
+						break;
+					case 'LoveFrame':
+						framemodel.LoveFrame(newdata);
 						break;
 					
 
