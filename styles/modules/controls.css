@@ -101,13 +101,27 @@
 	background-repeat: no-repeat;
 }
 
-
-.Original-button::before {
-	background-image: url(../../images/filter/1.jpg);
+.GrayscaleFilter-button::before {
+	background-image: url(../../images/filter/Grayscale.png);
 }
 
-.Grayscale-button::before {
-	background-image: url(../../images/filter/1.jpg);
+.AgedFilter-button::before {
+	background-image: url(../../images/filter/Aged.png);
+}
+.MagnifyFilter-button::before {
+	background-image: url(../../images/filter/Magnify.png);
+}
+.IcedFilter-button::before {
+	background-image: url(../../images/filter/Iced.png);
+}
+.TileFilter-button::before {
+	background-image: url(../../images/filter/Tile.png);
+}
+.SharpnessFilter-button::before {
+	background-image: url(../../images/filter/Sharpness.png);
+}
+.BlurFilter-button::before {
+	background-image: url(../../images/filter/Blur.png);
 }
 
 

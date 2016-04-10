@@ -31,9 +31,9 @@ define(
 			var buttonEl = elHelper.createButton( 'controls.controls', 'controls.controlstitle', 'controls-toggle-button button is-active', buttonParentEl, toggleControls );
 			
 			//var ori_filter = addFilter ('Original');
-			addFilter ('Grayscale');
+			addFilter ('GrayscaleFilter');
 			addFilter ('AgedFilter');
-			addFilter ('HahaFilter');
+			addFilter ('MagnifyFilter');
 			addFilter ('IcedFilter');
 			addFilter ('TileFilter');
 			addFilter ('SharpnessFilter');
