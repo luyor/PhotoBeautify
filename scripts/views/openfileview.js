@@ -46,6 +46,7 @@ define(
 					event.target.files[0]
 				) {
 					publishers.openfile.dispatch( event.target.files[0] );
+					fileInputEl.value = null;
 				}
 			}
 
