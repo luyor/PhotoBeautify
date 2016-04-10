@@ -97,7 +97,7 @@ var text = {
         "savetitle": "Save current image for later sessions",
         "download": "Download Image",
         "downloadtitle": "Download the glitched image to your device",
-        "saveinbrowser": "Save in Browser",
+        "saveinbrowser": "Save",
         "saveinbrowsertitle": "Save image in your browser’s storage",
         "filterlabeltitle":"Choose your filter",
         "adjustlabeltitle":"Adjust the parameters of the photo",

@@ -25,7 +25,7 @@ define(
 		}
 
 		var frame_canvas2 = document.createElement('canvas');
-		var frame_context2 = frame_canvas1.getContext('2d');
+		var frame_context2 = frame_canvas2.getContext('2d');
 		var imageObj2 = new Image();
 		imageObj2.src = "images/frame/Love.JPG";
 		imageObj2.onload = function() {
@@ -95,7 +95,7 @@ define(
 			var newcontext = newcanvas.getContext('2d');
 			newcanvas.width=imagedata.width;
 			newcanvas.height=imagedata.height;
-			newcontext.drawImage(frame_canvas1,0,0,newcanvas.width,newcanvas.height);
+			newcontext.drawImage(frame_canvas2,0,0,newcanvas.width,newcanvas.height);
 
 			var testdata = newcontext.getImageData(0,0,newcanvas.width,newcanvas.height);
 
