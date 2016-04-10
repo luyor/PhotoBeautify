@@ -88,6 +88,9 @@ define(
 					case 'ReliefFilter':
 						filtermodel.ReliefFilter(newdata);
 						break;
+					case 'CarnivalFilter':
+						filtermodel.CarnivalFilter(newdata);
+						break;
 
 				}
 

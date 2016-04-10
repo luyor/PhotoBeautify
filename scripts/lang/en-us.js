@@ -62,8 +62,11 @@ var text = {
         "SharpnessFilter":"Sharpness",
         "BlurFilter":"Blur",
         "ReliefFilter":"Relief",
-        "GreenEdgeFrame":"GreenEdge"
-    },
+
+        "GreenEdgeFrame":"GreenEdge",
+
+        "CarnivalFilter":"Carnival"
+ 
     "nav": {
         "menu": "Menu",
         "menutitle": "Toggle the main menu"

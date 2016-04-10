@@ -313,10 +313,37 @@ define(
 					preColor=color;
 				}
 			}
-
 			return imagedata;
 		}
 		filter.ReliefFilter=ReliefFilter;
+
+		function CarnivalFilter(imagedata){
+			var width=imagedata.width;
+			var height=imagedata.height;
+			var xWavelength = 10, xAmount = 20,
+                yWavelength = 10, yAmount = 20;
+
+            var dst = [];
+
+			for(var i=0; i<width; i++){
+				for(var j=0;j<height;j++){
+					var color=getPixel(imagedata,{x:i,y:j});
+					var x = Math.round(i + Math.sin(i / xWavelength) * xAmount);
+					var y = Math.round(j + Math.sin(j / yWavelength) * yAmount); 
+					dst[i+j*width]=getPixel(imagedata,{x:x,y:y});
+				}
+			}
+
+			for(var i=0; i<width; i++){
+				for(var j=0;j<height;j++){
+					if (!dst[i+j*width]) dst[i+j*width]={r:0,g:0,b:0};
+					setPixel(imagedata,{x:i,y:j},dst[i+j*width]);
+				}
+			}
+
+			return imagedata;
+		}
+		filter.CarnivalFilter=CarnivalFilter;
 
 
 		function addcolor(dst,index,color,ratio){
