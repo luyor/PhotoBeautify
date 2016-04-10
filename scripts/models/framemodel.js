@@ -114,6 +114,7 @@ define(
 		framemodel.LoveFrame = LoveFrame;
 
 
+
 		function BlackEdgeFrame(imagedata){
 
 			var d = imagedata.data;
