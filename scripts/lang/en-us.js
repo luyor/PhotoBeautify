@@ -9,7 +9,7 @@ var text = {
     "index": {
         "title": "Beautify Tool",
         "description": [
-            ""
+            "Photo Beautify by Yuhe Lu, Yiting He"
         ]
     },
 

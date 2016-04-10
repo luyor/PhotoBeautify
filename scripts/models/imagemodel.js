@@ -2,9 +2,6 @@
 define(
 	[ 'util/browser', 'util/addpublishers', 'util/time', 'util/canvas', 'util/localizetext' ],
 	function ( browser, addPublishers , timeHelper, canvasHelper, loc ) {
-		// the imageModel loads and stores the latest open image file
-		// (the original, not the glitched version) and converts it into
-		// a imageData object
 		function ImageModel () {
 			if ( ! ( this instanceof ImageModel ) ) {
 				return new ImageModel();

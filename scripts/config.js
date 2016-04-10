@@ -4,7 +4,7 @@ define(
 			settings: {
 				canZoomWithPointer: { value: true },
 				resizeUploadedImages: { value: true },
-				language: { value: 'en-us', options: [ 'en-us', 'en-gb', 'de-de', 'ru-ru' ] }
+				language: { value: 'en-us' }
 			},
 			defaultControlParams:{
 				contrast: {     min: 0, max: 99,  value: 50 },

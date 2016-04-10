@@ -26,11 +26,9 @@ define(
 			var FramemenuEl = elHelper.createEl( 'div', 'controls-wrapper', controlsEl );
 
 			var selected;
-
-			//var AdjustmenuEl = elHelper.createEl('div', 'menu-wrapper',controlsWrapperEl );
+			
 			var buttonEl = elHelper.createButton( 'controls.controls', 'controls.controlstitle', 'controls-toggle-button button is-active', buttonParentEl, toggleControls );
 			
-			//var ori_filter = addFilter ('Original');
 			addFilter ('GrayscaleFilter');
 			addFilter ('AgedFilter');
 			addFilter ('MagnifyFilter');
