@@ -53,6 +53,7 @@ define(
 		
 			function addFilter (name){
 				var filterfunc = function (){
+					resetAll();
 					setSelect(document.getElementById('filter.'+name));
 					publishers.filter.dispatch(name);
 				}
