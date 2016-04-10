@@ -32,6 +32,8 @@ define(
 			
 			var ori_filter = addFilter ('Original');
 			addFilter ('Grayscale');
+			addFilter ('AgedFilter');
+			addFilter ('HahaFilter');
 			addFrame ('filter3');
 
 			for ( var key in params  ) {
@@ -69,14 +71,8 @@ define(
 				selected.setAttribute('selected',true);
 			}
 
-
-			function loadInitialValues () {
-				// dispatch initial values when model is listening
-				var controlValues = getInputValues();
-				
-				for ( var key in controlValues ) {
-					publishers.update.dispatch( key, controlValues[key] );
-				}
+			function resetAll(){
+				setSelect(ori_filter);
 			}
 
 			function addControl ( key, params,parentEl ) {
@@ -202,11 +198,11 @@ define(
 				FramemenuEl.style.display = "flex";
 			}
 			
-			self.loadInitialValues = loadInitialValues;
 			self.setValue = setValue;
 			self.updateAdjustMenu = updateAdjustMenu;
 			self.updateFilterMenu = updateFilterMenu;
 			self.updateFrameMenu = updateFrameMenu;
+			self.resetAll = resetAll;
 		}
 
 		return ControlsView;
