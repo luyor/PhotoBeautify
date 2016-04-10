@@ -4,51 +4,41 @@ define(
 	function ( browser, addPublishers , canvasHelper, loc ) {
 		
 		var framemodel = {};
-		var frame_canvas = document.createElement('canvas');
-		var frame_context = frame_canvas.getContext('2d');
-		var imageObj = new Image();
-		imageObj.src = "images/frame/Diamond.JPG";
-		imageObj.onload = function() {
-			frame_canvas.width=imageObj.width;
-			frame_canvas.height=imageObj.height;
-    		frame_context.drawImage(imageObj, 0, 0);
-		}
-
-		var frame_canvas1 = document.createElement('canvas');
-		var frame_context1 = frame_canvas1.getContext('2d');
-		var imageObj1 = new Image();
-		imageObj1.src = "images/frame/Vintage.JPG";
-		imageObj1.onload = function() {
-			frame_canvas1.width=imageObj1.width;
-			frame_canvas1.height=imageObj1.height;
-    		frame_context1.drawImage(imageObj1, 0, 0);
-		}
-
-		var frame_canvas2 = document.createElement('canvas');
-		var frame_context2 = frame_canvas2.getContext('2d');
-		var imageObj2 = new Image();
-		imageObj2.src = "images/frame/Love.JPG";
-		imageObj2.onload = function() {
-			frame_canvas2.width=imageObj2.width;
-			frame_canvas2.height=imageObj2.height;
-    		frame_context2.drawImage(imageObj2, 0, 0);
-		}
-
+		var diamond_canvas = AddFrameData('WhiteSpot');
+		var vintage_canvas = AddFrameData('Vintage');
+		var love_canvas = AddFrameData('Love');
 		
-		function DiamondFrame(imagedata){
-			var framedata = frame_context.getImageData(0,0,frame_canvas.width,frame_canvas.height);
-			var framed = framedata.data;
+		function AddFrameData(name){
+			var frame_canvas = document.createElement('canvas');
+			var frame_context = frame_canvas.getContext('2d');
+			var imageObj = new Image();
+			imageObj.src = "images/frame/"+name+".JPG";
+			imageObj.onload = function() {
+				frame_canvas.width=imageObj.width;
+				frame_canvas.height=imageObj.height;
+    			frame_context.drawImage(imageObj, 0, 0);
+    		}
+    		return frame_canvas;
+		}
 
+		function Resize(canvas,imagedata){
+			var frame_context = canvas.getContext('2d');
+			var framedata = frame_context.getImageData(0,0,canvas.width,canvas.height);
 			var newcanvas = document.createElement('canvas');
 			var newcontext = newcanvas.getContext('2d');
 			newcanvas.width=imagedata.width;
 			newcanvas.height=imagedata.height;
-			newcontext.drawImage(frame_canvas,0,0,newcanvas.width,newcanvas.height);
-
-			var testdata = newcontext.getImageData(0,0,newcanvas.width,newcanvas.height);
+			newcontext.drawImage(diamond_canvas,0,0,newcanvas.width,newcanvas.height);
 
 			framedata = newcontext.getImageData(0,0,newcanvas.width,newcanvas.height);
-			framed = framedata.data;
+			return framedata;
+		}
+		
+
+		
+		function DiamondFrame(imagedata){
+			var framedata = Resize(diamond_canvas,imagedata);
+			var framed = framedata.data;
 			var d = imagedata.data;
 			for (var i=0; i<d.length; i+=4) {
 				var scale = (framed[i]+framed[i]+framed[i])/3/255;
@@ -62,19 +52,8 @@ define(
 		framemodel.DiamondFrame = DiamondFrame;
 
 		function VintageFrame(imagedata){
-			var framedata = frame_context1.getImageData(0,0,frame_canvas1.width,frame_canvas1.height);
+			var framedata = Resize(vintage_canvas,imagedata);
 			var framed = framedata.data;
-
-			var newcanvas = document.createElement('canvas');
-			var newcontext = newcanvas.getContext('2d');
-			newcanvas.width=imagedata.width;
-			newcanvas.height=imagedata.height;
-			newcontext.drawImage(frame_canvas1,0,0,newcanvas.width,newcanvas.height);
-
-			var testdata = newcontext.getImageData(0,0,newcanvas.width,newcanvas.height);
-
-			framedata = newcontext.getImageData(0,0,newcanvas.width,newcanvas.height);
-			framed = framedata.data;
 			var d = imagedata.data;
 			for (var i=0; i<d.length; i+=4) {
 				var scale = (framed[i]+framed[i]+framed[i])/3/255;
@@ -88,19 +67,8 @@ define(
 		framemodel.VintageFrame = VintageFrame;
 
 		function LoveFrame(imagedata){
-			var framedata = frame_context2.getImageData(0,0,frame_canvas2.width,frame_canvas2.height);
+			var framedata = Resize(love_canvas,imagedata);
 			var framed = framedata.data;
-
-			var newcanvas = document.createElement('canvas');
-			var newcontext = newcanvas.getContext('2d');
-			newcanvas.width=imagedata.width;
-			newcanvas.height=imagedata.height;
-			newcontext.drawImage(frame_canvas2,0,0,newcanvas.width,newcanvas.height);
-
-			var testdata = newcontext.getImageData(0,0,newcanvas.width,newcanvas.height);
-
-			framedata = newcontext.getImageData(0,0,newcanvas.width,newcanvas.height);
-			framed = framedata.data;
 			var d = imagedata.data;
 			for (var i=0; i<d.length; i+=4) {
 				var scale = (framed[i]+framed[i]+framed[i])/3/255;
