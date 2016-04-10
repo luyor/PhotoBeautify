@@ -17,68 +17,78 @@ define(
 		function GreenEdgeFrame(imagedata){
 
 			frame_context.getImageData(0,0,frame_canvas.width,frame_canvas.height);
-			//var frame_canvas = document.createElement('canvas');
-			//xvar frame_context = frame_canvas.getContext('2d');
+		}
 
-			//fileReader = new fileReader();
-			//fileReader.readAsDataURL('GreenEdge.JPG');
-
-			
-			//imageObj.width = 518;
-			//imageObj.height = 518;
-
-			
-			//console.log(imageObj.width);
-			
-
-			/*
+		function BlackEdgeFrame(imagedata){
 
 			var d = imagedata.data;
-
 			var w = imagedata.width;
   			var h = imagedata.height;
-  			var frame_w = Math.floor(w*0.05);
-  			var frame_h = Math.floor(h*0.05);
-
-  			var frame_xw = Math.floor(w*0.1);
-  			var frame_xh = Math.floor(w*0.1);
-
+  			var srcOff;
 			for (var y=0; y<h; y++) {
 		    	for (var x=0; x<w; x++) {
-		      		if(y<=Math.floor(h*0.1)|| y>=Math.floor(h*0.9)){
-
-		      		}
-		      			var sx = x;
-		      		var dstOff = (y*w+x)*4;
-		      		// calculate the weighed sum of the source image pixels that
-		      		// fall under the convolution matrix
-		      		var r=0, g=0, b=0, a=0;
-		      		for (var cy=0; cy<side; cy++) {
-		        		for (var cx=0; cx<side; cx++) {
-		          			var scy = sy + cy - halfSide;
-		          			var scx = sx + cx - halfSide;
-		          			if (scy >= 0 && scy < h && scx >= 0 && scx < w) {
-		            			var srcOff = (scy*w+scx)*4;
-		            			var wt = weights[cy*side+cx];
-		            			r += d[srcOff] * wt;
-		            			g += d[srcOff+1] * wt;
-		            			b += d[srcOff+2] * wt;
-		            			a += d[srcOff+3] * wt;
-		          			}
-		        		}
-		      		}
-		      		dst[dstOff] = r;
-		      		dst[dstOff+1] = g;
-		      		dst[dstOff+2] = b;
-		      		dst[dstOff+3] = a + alphaFac*(255-a);
-		    	}
-			}
-*/
-
+		    		var xdis = x> 0.5*w ? (w-x):x;
+		    		var ydis = y> 0.5*h ? (h-y):y;
+		    		var xscale = xdis/w;
+		    		var yscale = ydis/h;
+		    		var scale = yscale < xscale? yscale : xscale; 
+		    		if(scale<=0.05){
+		    			scale = scale/0.05;
+		    			srcOff = (y*w+x)*4;
+		    			d[srcOff] = 0;
+	      				d[srcOff+1] = 0;
+	      				d[srcOff+2] = 0;
+		    		}
+		    		else if(scale<=0.1 && scale>0.05){
+		    			scale = scale/0.05-1;
+		    			srcOff = (y*w+x)*4;
+		    			d[srcOff] = d[srcOff]*scale;
+	      				d[srcOff+1] = d[srcOff+1]*scale;
+	      				d[srcOff+2] = d[srcOff+2]*scale;
+		    		}
+		      	}
+		      	
+		    }
 			return imagedata;
 		}
 
-		framemodel.GreenEdgeFrame = GreenEdgeFrame;
+		function CircleFrame(imagedata){
+
+			var d = imagedata.data;
+			var w = imagedata.width;
+  			var h = imagedata.height;
+  			var srcOff;
+			for (var y=0; y<h; y++) {
+		    	for (var x=0; x<w; x++) {
+		    		var xdis = x> 0.5*w ? (x-0.5*w):(0.5*w-x);
+		    		var ydis = y> 0.5*h ? (y-0.5*h):(0.5*h-y);
+		    		var xscale = xdis/w*2;
+		    		var yscale = ydis/h*2;
+
+		    		var dis = Math.pow(xscale,2)+ Math.pow(yscale,2); 
+		    		dis = Math.sqrt(dis);
+		    		if(dis>=1){
+		    			srcOff = (y*w+x)*4;
+		    			d[srcOff] = 0;
+	      				d[srcOff+1] = 0;
+	      				d[srcOff+2] = 0;
+		    		}
+		    		else if(dis>=0.8){
+		    			var scale = (dis-0.8)/0.2;
+		    			srcOff = (y*w+x)*4;
+		    			d[srcOff] = d[srcOff]*(1-scale);
+	      				d[srcOff+1] = d[srcOff+1]*(1-scale);
+	      				d[srcOff+2] = d[srcOff+2]*(1-scale);
+		    		}
+		      	}
+		      	
+		    }
+			return imagedata;
+		}
+
+		framemodel.BlackEdgeFrame = BlackEdgeFrame;
+		framemodel.CircleFrame = CircleFrame;
+
 		return framemodel;
 	}
 );

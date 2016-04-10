@@ -42,7 +42,8 @@ define(
 			addFilter ('CarnivalFilter');
 
 
-			addFrame ('GreenEdgeFrame');
+			addFrame ('BlackEdgeFrame');
+			addFrame('CircleFrame');
 
 			for ( var key in params  ) {
 				addControl( key, params[key] ,AdjustmenuEl);
