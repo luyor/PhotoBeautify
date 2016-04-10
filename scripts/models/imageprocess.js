@@ -16,8 +16,7 @@ define(
 				brightness : 50, 
 				exposure : 50,
 				warmth : 50,
-				saturation : 50,
-				sharpness : 50}
+				saturation : 50}
 
 			
 
