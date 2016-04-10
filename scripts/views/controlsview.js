@@ -38,6 +38,7 @@ define(
 			addFilter ('TileFilter');
 			addFilter ('SharpnessFilter');
 			addFilter ('BlurFilter');
+			addFilter ('ReliefFilter');
 
 			addFrame ('filter3');
 

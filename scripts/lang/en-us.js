@@ -61,6 +61,7 @@ var text = {
         "TileFilter":"Tile",
         "SharpnessFilter":"Sharpness",
         "BlurFilter":"Blur",
+        "ReliefFilter":"Relief",
         "filter3":"333"
     },
     "nav": {

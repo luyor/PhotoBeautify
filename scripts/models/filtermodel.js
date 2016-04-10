@@ -292,6 +292,29 @@ define(
 		}
 		filter.BlurFilter = BlurFilter;
 
+		function ReliefFilter(imagedata){
+			var width=imagedata.width;
+			var height=imagedata.height;
+
+			var prepreColor = {r:0,g:0,b:0};
+			var preColor = {r:0,g:0,b:0};
+
+			for(var i=0; i<width; i++){
+				for(var j=0;j<height;j++){
+					var color=getPixel(imagedata,{x:i,y:j});
+					var new_color={r:color.r-prepreColor.r+128,
+						g:color.g-prepreColor.g+128,
+						b:color.b-prepreColor.b+128};
+					setPixel(imagedata,{x:i,y:j},new_color);
+					prepreColor=preColor;
+					preColor=color;
+				}
+			}
+
+			return imagedata;
+		}
+		filter.ReliefFilter=ReliefFilter;
+
 
 		function addcolor(dst,index,color,ratio){
 			if (!dst[index]) {
