@@ -147,6 +147,7 @@ require([
             .on( 'updateimage' , canvasView.putImageData);
 
         controlsView
+            .on( 'update', imageProcess.adjust)
             .on( 'filter' , imageProcess.filter)
     }
 

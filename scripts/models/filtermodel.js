@@ -6,7 +6,7 @@ define(
 		var filter = {};
 
 		function Grayscale(imagedata){
-			d = imagedata.data;
+			var d = imagedata.data;
 			for (var i=0; i<d.length; i+=4) {
 			  	var r = d[i];
 			 	var g = d[i+1];
