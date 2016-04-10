@@ -64,13 +64,13 @@ define(
 				switch(name){
 					case 'Original':
 						break; 
-					case 'Grayscale':
+					case 'GrayscaleFilter':
 						filtermodel.Grayscale(newdata);
 						break;
 					case 'AgedFilter':
 						filtermodel.AgedFilter(newdata);
 						break;
-					case 'HahaFilter':
+					case 'MagnifyFilter':
 						filtermodel.HahaFilter(newdata);
 						break;
 					case 'IcedFilter':

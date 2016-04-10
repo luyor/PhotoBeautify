@@ -238,7 +238,10 @@ define(
 
 		function BlurFilter(imagedata){
 			d = imagedata.data;
-  			var weights =[];			
+  			var weights =[];	
+  			//weights[1] = weights[3] = weights[5] = weights[7] = 1/9;
+  			//weights[4] = 1/9;
+  			//weights[0] = weights[2] = weights[6] = weights[8] =1/9;		
   			weights[12] = 1/25;
   			weights[7] = weights[11] = weights[13] = weights[17] = 1/25;
   			weights[2] = weights[6] = weights[8] = weights[10] = weights[14] = weights[16] = weights[18] = weights[22]= 1/25;
@@ -251,8 +254,8 @@ define(
 		  	var dst = [];
 		  	// go through the destination image pixels
 		  	var alphaFac = 0; //opaque ? 1 : 0;
-		  	for (var y=0; y<h; y++) {
-		    	for (var x=0; x<w; x++) {
+		  	for (var y=3; y<h-3; y++) {
+		    	for (var x=3; x<w-3; x++) {
 		      		var sy = y;
 		      		var sx = x;
 		      		var dstOff = (y*w+x)*4;
