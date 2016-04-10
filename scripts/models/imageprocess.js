@@ -85,6 +85,9 @@ define(
 					case 'BlurFilter':
 						filtermodel.BlurFilter(newdata);
 						break;
+					case 'ReliefFilter':
+						filtermodel.ReliefFilter(newdata);
+						break;
 
 				}
 

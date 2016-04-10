@@ -154,7 +154,6 @@ require([
 
         controlsView
             .on( 'update', imageProcess.adjust)
-            .on( 'filter' , controlsView.resetAll)
             .on( 'filter' , imageProcess.filter);
 
     }
