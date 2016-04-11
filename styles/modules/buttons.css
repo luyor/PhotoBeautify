@@ -19,12 +19,12 @@
 
 .has-touch .button {
 	border: 2px solid rgba(255, 255, 255, 0.5);
-	height: 45px;
-	line-height: 40px;
+	height: 35px;
+	line-height: 25px;
 	padding-top: 0;
 	padding-bottom: 0;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 6px;
+	padding-right: 6px;
 }
 
 .button:focus {
@@ -75,13 +75,3 @@
 	max-height: 442px;
 }
 
-/*.dialog-list .button {
-	border-radius: 1px;
-}
-
-.dialog-list .button:hover,
-.dialog-list .button:active,
-.dialog-list .button:focus {
-	color: #e91e63;
-	background-color: #fff;
-}*/

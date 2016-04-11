@@ -11,11 +11,11 @@
 
 .controls.is-active {
 	opacity: 1;
-	max-height: 200px;
+	max-height: 500px;
 }
 
 	.has-touch .controls.is-active {
-		max-height: 300px;
+		max-height: 500px;
 	}
 
 .controls-wrapper {
@@ -24,7 +24,6 @@
 	padding: 10px;
 	color: #ccc;	
 	display: flex;
-	justify-content: space-between;
 	align-items: flex-start;
 	align-content: flex-start;
 	flex-wrap: wrap;
@@ -41,19 +40,13 @@
 
 .has-touch .control {
 	height: 45px;
-	margin-bottom: 10px;
+	margin-bottom: 0px;
 }
 
 .controls .button {
 	line-height: 18px;
 	margin-left: 10px;
 }
-
-
-
-
-
-
 
 
 
@@ -75,6 +68,11 @@
 
 	text-align: center;
 	position: relative;
+}
+
+.has-touch .image-button{
+	margin-left: 15px;
+	margin-right: 15px;
 }
 
 .image-button:hover,
@@ -342,14 +340,7 @@ input[type=range]:focus {
 	outline: none;
 }
 
-/*input[type=range]::-webkit-slider-runnable-track {
-	width: 100%;
-	height: 4px;
-	cursor: pointer;
-	background: rgba(0, 0, 0, 0.95);
-	border-radius: 3px;
-	border: 1px solid #333333;
-}*/
+
 
 
 input[type=range]::-webkit-slider-thumb {
